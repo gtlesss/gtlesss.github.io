@@ -436,9 +436,12 @@
         <div class="count-but">全方位的无忧专属上云服务</div>
         <div class="buttom-box">
             <div @mouseleave="mouseleaveButtom()" @mouseenter="mouseenterButtom()" class="buttom-box-item23">
-                <div v-if="!isMouseleaveButtom" class="buttom-box-item1">400-800-1000</div>
+                <div v-if="!isMouseleaveButtom" class="buttom-box-item1">
+                    <div>简婧玮</div>
+                    <div>18910893163 Jingwei.Jian@cicc.com.cn</div>
+                    <div class="buttom-box-item1-bor"></div>
+                </div>
                 <div
-                    v-else
                     class="buttom-box-item bd1"
                     style="border-right: 1px solid #dfdfdf;width: 100%; height: 100%;"
                 >
@@ -952,10 +955,11 @@ export default {
     .tablelist {
         margin: 0 auto;
         display: flex;
+        width: 962px;
+        justify-content: space-between;
         > div {
             display: flex;
             flex-direction: column;
-            margin-right: 40px;
             align-items: center;
             cursor: pointer;
         }
@@ -1254,6 +1258,7 @@ export default {
         .buttom-box-item23 {
             width: 480px;
             height: 150px;
+            position: relative;
         }
          @keyframes identifierbuttom {
             from {
@@ -1265,17 +1270,40 @@ export default {
         }
         .buttom-box-item1 {
             background: #be8c4b;
-            font-size: 20px;
-            font-family: DIN Alternate-Bold, DIN Alternate;
-            font-weight: bold;
             color: #ffffff;
-            line-height: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
+            border-radius: 4px;
+            width: 257px;
+            height: 74px;
             animation: identifierbuttom 0.5s linear;
+            position: absolute;
+            z-index: 9;
+            left: 20px;
+            top: 8px;
+            padding-left: 16px;
+            box-sizing: border-box;
+           &-bor {
+               position: absolute;
+               width: 8px;
+               height: 8px;
+               background: #be8c4b;
+               bottom: -4px;
+            transform: rotate(45deg);
+           }
+            :nth-child(1) {
+                font-size: 14px;
+                font-family: PingFang SC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #FFFFFF;
+                line-height: 22px;
+                margin-top: 16px;
+            }
+            :nth-child(2) {
+                font-size: 12px;
+                font-family: PingFang SC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #FFFFFF;
+                line-height: 20px;
+            }
         }
         .buttom-box-item {
             display: flex;
