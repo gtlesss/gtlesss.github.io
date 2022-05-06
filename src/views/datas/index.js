@@ -296,3 +296,128 @@ export  const headerList = [
     "费用评估",
     "联系方式",
 ];
+export const yunlsit = [
+    {   
+        lable:'云主机',
+        children:[
+            {name:'简婧玮',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'}
+        ]
+    },
+    {   
+        lable:'裸金属',
+        children:[
+            {name:'刘洋',tel:'18613831525 ',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'高满',tel:'18600943657 ',url:'Man.Gao@cicc.com.cn'}
+        ]
+    },
+    {   
+        lable:'容器',
+        children:[
+            {name:'鲁非',tel:'13811632075 ',url:'Fei.Lu@cicc.com.cn'},
+            {name:'严飞',tel:'15600748776',url:'Fei.Yan@cicc.com.cn'},
+        ]
+    },
+    {   
+        lable:'天梯(CD)',
+        children:[
+            {name:'鲁非',tel:'13811632075 ',url:'Fei.Lu@cicc.com.cn'},
+            {name:'曲植',tel:'13488642338',url:'Zhi.Qu@cicc.com.cn'},
+        ]
+    },
+    {   
+        lable:'GPU服务',
+        children:[
+            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'高满',tel:'18600943657 ',url:'Man.Gao@cicc.com.cn'}
+        ]
+    },
+    {   
+        lable:'操作系统',
+        children:[
+            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+
+        ]
+    },
+    {   
+        lable:'通用软件',
+        children:[
+            {name:'曲植',tel:'13488642338',url:'Zhi.Qu@cicc.com.cn'},
+
+        ]
+    },
+    {   
+        lable:'存储',
+        children:[
+            {name:'刘帅',tel:'18647144496',url:'Shuai.Liu@cicc.com.cn'},
+
+        ]
+    },
+    {   
+        lable:'网络',
+        children:[
+            {name:'梁红伟',tel:'13910195082',url:'Hongwei.Liang@cicc.com.cn'},
+
+        ]
+    },
+    
+    {   
+        lable:'数据库',
+        children:[
+            {name:'杨盼',tel:'18910968781',url:'Pan.Yang@cicc.com.cn'},
+            {name:'刘帅',tel:'18647144496',url:'Shuai.Liu@cicc.com.cn'},
+
+        ]
+    },
+    {   
+        lable:'备份',
+        children:[
+            {name:'杨盼',tel:'18910968781',url:'Pan.Yang@cicc.com.cn'},
+           
+        ]
+    },
+    {   
+        lable:'堡垒机',
+        children:[
+            {name:'杨文杰',tel:'15989426333',url:'Wenjie.Yang@cicc.com.cn'},
+           
+        ]
+    },
+    {   
+        lable:'监控',
+        children:[
+            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘帅',tel:'18647144496',url:'Shuai.Liu@cicc.com.cn'},
+            {name:'杨盼',tel:'18910968781',url:'Pan.Yang@cicc.com.cn'},
+            {name:'严飞',tel:'15600748776',url:'Fei.Yan@cicc.com.cn'},
+            
+        ]
+    },
+    {   
+        lable:'日志',
+        children:[
+            {name:'杨文杰',tel:'15989426333',url:'Wenjie.Yang@cicc.com.cn'},
+        ]
+    },
+    
+    {   
+        lable:'安全',
+        children:[
+            {name:'曲植',tel:'13488642338',url:'Zhi.Qu@cicc.com.cn'},
+            {name:'程乾',tel:'13801309038',url:'Qian.Cheng@cicc.com.cn'},
+            
+        ]
+    },
+    {   
+        lable:'SSJ证书服务',
+        children:[
+            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+           
+        ]
+    },
+     {   
+        lable:'域名DNS服务',
+        children:[
+            {name:'刘洋',tel:'18613831525 ',url:'Jingwei.Jian@cicc.com.cn'},
+        ]
+    },
+]

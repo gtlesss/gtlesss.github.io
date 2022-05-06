@@ -435,12 +435,8 @@
         <img src="../../public/img/map.png" alt="" class="count-img" />
         <div class="count-but">全方位的无忧专属上云服务</div>
         <div class="buttom-box">
-            <div @mouseleave="mouseleaveButtom()" @mouseenter="mouseenterButtom()" class="buttom-box-item23">
-                <div v-if="!isMouseleaveButtom" class="buttom-box-item1">
-                    <div>简婧玮</div>
-                    <div>18910893163 Jingwei.Jian@cicc.com.cn</div>
-                    <div class="buttom-box-item1-bor"></div>
-                </div>
+            <div class="buttom-box-item23" @mouseleave="mouseleaveButtom()">
+                <!-- @mouseleave="mouseleaveButtom()" @mouseenter="mouseenterButtom()" -->
                 <div
                     class="buttom-box-item bd1"
                     style="border-right: 1px solid #dfdfdf;width: 100%; height: 100%;"
@@ -459,8 +455,20 @@
                         />
                     </div>
                     <div class="buttom-box-item-but">
-                        云主机&nbsp;裸金属&nbsp;GPU服务&nbsp;操作系统&nbsp;通用软件&nbsp;存储&nbsp;数据库&nbsp;备份&nbsp;堡垒机&nbsp;监控<br />
-                        安全&nbsp;SSJ证书服务
+                        <span @mouseenter="(e)=>mouseenterButtom(index,e)" :class="index==8?'_nowas':''" class="buttom-box-item-but-lable" 
+                            v-for="(item,index) in yunlsit" :key="index">
+                            {{item.lable}}
+                            <div v-if="!isMouseleaveButtom && index==mouseenterButtomIndex" class="buttom-box-item1" style=" position: absolute;
+                                z-index: 9;
+                                bottom: 20px;left:-5px" >
+                                <div v-for="(_item,_index) in yunlsit[mouseenterButtomIndex].children" :key="_index">
+                                    <div class="chil_1">{{_item.name}}</div>
+                                    <div class="chil_2">{{_item.tel}}} {{_item.url}}</div>
+                                </div>
+                                <div class="buttom-box-item1-bor"></div>
+                            </div>
+                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -557,7 +565,24 @@
 </template>
 
 <script>
-import { headerList, ITlist, tablelist } from "./datas/index";
+// 裸金属：刘洋： 18613831525  Yang6.Liu@cicc.com.cn、 高满  18600943657  Man.Gao@cicc.com.cn
+// 容器   鲁非   13811632075 Fei.Lu@cicc.com.cn、严飞   15600748776 Fei.Yan@cicc.com.cn
+// 天梯（CD）    鲁非   13811632075 Fei.Lu@cicc.com.cn、曲植  13488642338  Zhi.Qu@cicc.com.cn
+// GPU服务器  刘洋  18613831525  Yang6.Liu@cicc.com.cn、 高满 18600943657  Man.Gao@cicc.com.cn
+// 操作系统 刘洋  18613831525  Yang6.Liu@cicc.com.cn
+// 通用软件 曲植   13488642338  Zhi.Qu@cicc.com.cn
+// 存储  刘帅   18647144496  Shuai.Liu@cicc.com.cn
+// 网络  梁红伟    13910195082  Hongwei.Liang@cicc.com.cn
+// 数据库   杨盼   18910968781  Pan.Yang@cicc.com.cn、 刘帅   18647144496  Shuai.Liu@cicc.com.cn
+// 备份 杨盼 18910968781  Pan.Yang@cicc.com.cn
+// 堡垒机 杨文杰 15989426333  Wenjie.Yang@cicc.com.cn
+// 监控 刘洋 18613831525  Yang6.Liu@cicc.com.cn、刘帅 18647144496  Shuai.Liu@cicc.com.cn、杨盼 18910968781  Pan.Yang@cicc.com.cn、、严飞  15600748776  Fei.Yan@cicc.com.cn
+// 日志 杨文杰  15989426333  Wenjie.Yang@cicc.com.cn
+// 安全 曲植 13488642338  Zhi.Qu@cicc.com.cn、程乾  13801309038  Qian.Cheng@cicc.com.cn
+// SSL证书服务 刘洋 18613831525  Yang6.Liu@cicc.com.cn
+// 域名DNS服务:刘洋18613831525  Yang6.Liu@cicc.com.cn
+                       
+import { headerList, ITlist, tablelist ,yunlsit} from "./datas/index";
 import Swioer from "./components/Swiper.vue";
 export default {
     name: "Home",
@@ -566,6 +591,7 @@ export default {
     },
     data() {
         return {
+            yunlsit,
             headerList,
             tablelist,
             ITlist,
@@ -577,9 +603,30 @@ export default {
             show1: true,
             mouseenter1: true,
             mouseenter2: true,
-            isMouseleaveButtom:true
+            isMouseleaveButtom:true,
+            mouseenterButtomIndex:null,
+            offsetWidths:0
         };
     },
+    // computed:{
+    //      offsetWidth(){
+    //         let rpx = 0
+    //         if(this.mouseenterButtomIndex == 0 ||this.mouseenterButtomIndex == 1||this.mouseenterButtomIndex == 9||this.mouseenterButtomIndex == 11){
+    //             rpx = 4
+    //         }
+    //         if(this.mouseenterButtomIndex == 1||this.mouseenterButtomIndex == 7||this.mouseenterButtomIndex == 8||this.mouseenterButtomIndex == 10||this.mouseenterButtomIndex == 12||this.mouseenterButtomIndex == 13||this.mouseenterButtomIndex == 14){
+    //             rpx = 2
+    //         }
+    //         if(this.mouseenterButtomIndex == 4||this.mouseenterButtomIndex == 5||this.mouseenterButtomIndex == 6||this.mouseenterButtomIndex == 15||this.mouseenterButtomIndex == 16){
+    //             rpx = 15
+    //         }
+    //         console.log( this.offsetWidths);
+    //        this.offsetWidths = rpx
+    //        return {
+    //            rpx
+    //        }
+    //     },
+    // },
     methods: {
         jwap(i) {},
         // 鼠标离开
@@ -617,9 +664,12 @@ export default {
         mouseleaveButtom(){
            this.isMouseleaveButtom = true
         },
-        mouseenterButtom(){
+        mouseenterButtom(index,e){
+            // this.offsetWidth = e.target.offsetWidth
+            // console.log(e);
+            this.mouseenterButtomIndex = index
             this.isMouseleaveButtom = false
-        }
+        },
     },
 };
 </script>
@@ -1258,7 +1308,7 @@ export default {
         .buttom-box-item23 {
             width: 480px;
             height: 150px;
-            position: relative;
+            
         }
          @keyframes identifierbuttom {
             from {
@@ -1268,28 +1318,32 @@ export default {
                 opacity: 1;
             }
         }
+        .buttom-box-item-but-lable {
+            margin-right: 8px;
+            position: relative;
+        }
+        ._nowas {
+            margin-right: 0;
+        }
         .buttom-box-item1 {
             background: #be8c4b;
             color: #ffffff;
             border-radius: 4px;
             width: 257px;
-            height: 74px;
-            animation: identifierbuttom 0.5s linear;
-            position: absolute;
-            z-index: 9;
-            left: 20px;
-            top: 8px;
+            animation: identifierbuttom 0.2s linear;
             padding-left: 16px;
             box-sizing: border-box;
+            padding-bottom: 16px;
+           
            &-bor {
                position: absolute;
                width: 8px;
                height: 8px;
                background: #be8c4b;
                bottom: -4px;
-            transform: rotate(45deg);
+               transform: rotate(45deg);
            }
-            :nth-child(1) {
+            .chil_1 {
                 font-size: 14px;
                 font-family: PingFang SC-Medium, PingFang SC;
                 font-weight: 500;
@@ -1297,7 +1351,7 @@ export default {
                 line-height: 22px;
                 margin-top: 16px;
             }
-            :nth-child(2) {
+            .chil_2 {
                 font-size: 12px;
                 font-family: PingFang SC-Regular, PingFang SC;
                 font-weight: 400;
