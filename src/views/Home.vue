@@ -1,18 +1,1287 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="home">
+        <!-- 顶部导航 -->
+        <div class="home-box">
+            <header>
+                <img src="../../public/img/Frame.png" alt="" class="home-box-img" />
+                <div class="header-right">
+                    <span
+                        :class="headerIndex == index ? 'headerActive' : ''"
+                        v-for="(item, index) in headerList"
+                        :key="index"
+                        >{{ item }}</span
+                    >
+                </div>
+            </header>
+        </div>
+        <!-- 轮播图 -->
+        <div class="layout">
+            <div class="swiper-box layout-cil">
+                <Swioer />
+            </div>
+        </div>
+        <!-- 支撑业务快速发展的IT 基础设施 -->
+        <main class="home-box">
+            <div class="it">
+                <div
+                    class="it-box"
+                    @mouseleave="mouseleave(1)"
+                    @mouseenter="mouseenter(1)"
+                >
+                    <div v-if="mouseenter1">
+                        <div class="it-box-top">
+                            <img
+                                src="../../public/img/1.png"
+                                alt=""
+                                class="it-box-img"
+                            />
+                            <div>
+                                <div class="it-box-lable">
+                                    支撑业务快速发展的IT 基础设施
+                                </div>
+                                <div class="it-box-text">
+                                    多云融合 / 运营高效 / 开放共享
+                                </div>
+                            </div>
+                        </div>
+                        <div class="it-buttom" @click="jwap(1)">了解详情</div>
+                    </div>
+                    <div v-else class="it-box-top2">
+                        <ul>
+                            <li>
+                                伴随中金「数字化、区域化、国际化」的战略推进，「业务系统」开发规模、「
+                                IT 基础设施」规模都在快速增长。IT
+                                基础设施服务、治理压力越来越大，现有「IT
+                                服务管理模式、工具」需快速变化，支撑业务快速发展。
+                            </li>
+                            <li>
+                                2021年6月，IT
+                                基础运维团队打造“多云融合、运营高效、开放共享”的苍穹云平台，为业务发展提供高效、稳定、协同的资源平台。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="it-box"
+                    style="margin-left: 16px"
+                    @mouseleave="mouseleave(2)"
+                    @mouseenter="mouseenter(2)"
+                >
+                    <div v-if="mouseenter2">
+                        <div class="it-box-top">
+                            <img
+                                src="../../public/img/2.png"
+                                alt=""
+                                class="it-box-img"
+                            />
+                            <div>
+                                <div class="it-box-lable">丰富的 IAAS 资源</div>
+                                <div class="it-box-text">
+                                    私有云 / 容器资源池 / 公有云 / 云管平台 /
+                                    运维服务
+                                </div>
+                            </div>
+                        </div>
+                        <div class="it-buttom" @click="jwap(2)">了解详情</div>
+                    </div>
+                    <div v-else class="it-box-top2">
+                        <ul>
+                            <li>私有云：云主机、裸金属、存储、网络资源</li>
+                            <li>容器资源池 ；</li>
+                            <li>公有云：阿里云、腾讯云、华为云 ；</li>
+                            <li>
+                                云管平台：资源统一纳管、服务编排调度，针对云主机、存储、物理机，提供计量计费，提供财务分摊依据；
+                            </li>
+                            <li>
+                                运维服务：数据库服务、备份服务、安全服务、堡垒机服务、监控服务、告警服务、日志服务。
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; width: 100%">
+                <div
+                    style="
+                        margin: 80px 0 16px 0;
+                        font-size: 28px;
+                        font-family: PingFang SC-Regular, PingFang SC;
+                        font-weight: 400;
+                        line-height: 36px;
+                    "
+                >
+                    苍穹云平台 · 下一代IT基础设施
+                </div>
+            </div>
+        </main>
+        <!-- 表格切换 -->
+        <div class="layout">
+            <transition name="fade">
+                <div class="platform layout-cil" v-if="show1">
+                    <div class="table">
+                        <div
+                            v-if="platformIndex == 1"
+                            style="display: flex"
+                            key="fade1"
+                        >
+                            <div class="table-left">
+                                <div class="table-left-bck1" @click="clickEvent(2)">场景</div>
+                                <div class="table-left-bck2" @click="clickEvent(1)">苍穹云</div>
+                            </div>
+                            <div class="table-cont">
+                                <div class="table-cont-lable countents">
+                                    <span>云管理平台</span>
+                                </div>
+                                <div class="table-cont-lable">
+                                    <span>云门户</span
+                                    ><span class="bor">计量计费</span
+                                    ><span class="bor">服务编排</span>
+                                </div>
+                                <div class="table-cont-lable">
+                                    <span>服务目录</span
+                                    ><span class="bor">容量管理</span
+                                    ><span class="bor">自动化管理</span>
+                                </div>
+                                <div class="table-cont-lable countents">
+                                    <span>私有云资源池</span
+                                    ><span class="bor">容器资源池</span
+                                    ><span class="bor">公有云</span>
+                                </div>
+                                <div class="table-cont-lable1">
+                                    <span>生产</span
+                                    ><span class="bor">研发</span
+                                    ><span class="bor">生产</span
+                                    ><span class="bor">研发</span>
+                                    <span class="bor spanms_">华为云</span>
+                                </div>
+                                <div class="table-cont-lable2">
+                                    <span>IDC</span
+                                    ><span class="bor">阿里云</span>
+                                </div>
+                                <div class="table-cont-lable">
+                                    <span style="border-bottom: none"
+                                        >北京中嘉IDC</span
+                                    ><span
+                                        style="
+                                            background: #f8f8f8;
+                                            border-bottom: none;
+                                        "
+                                        class="bor"
+                                        >北京望京IDC（建设中）</span
+                                    ><span
+                                        style="border-bottom: none"
+                                        class="bor"
+                                        >腾讯云</span
+                                    >
+                                </div>
+                            </div>
+                            <div class="table-right">
+                                <div class="table-right-lable">
+                                    <div class="countents">
+                                        <span>运维保障</span>
+                                    </div>
+                                    <div class="tright-conent">
+                                        <span>CMDB</span><span>监控</span
+                                        ><span>堡垒机</span
+                                        ><span style="border-bottom: none"
+                                            >日志</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-else style="display: flex" key="fade2">
+                            <div class="table-left">
+                                <div class="table-left-bck3" @click="clickEvent(2)">场景</div>
+                                <div class="table-left-bck4" @click="clickEvent(1)">苍穹云</div>
+                            </div>
+                            <div class="it-boxs1">
+                                <div class="it-boxs">
+                                    <div
+                                        v-for="(item, index) in ITlist"
+                                        :key="index"
+                                        :class="index<3?'borno':''"
+                                    >
+                                        <img
+                                            :src="item.img"
+                                            alt=""
+                                            class="it-box-img"
+                                        />
+                                        <div class="it-box-text">
+                                            <span class="it-box-text-tit">{{
+                                                item.tit
+                                            }}</span>
+                                            <span
+                                                v-for="(
+                                                    item_, index_
+                                                ) in item.children"
+                                                :key="index_"
+                                                class="it-box-text-content"
+                                            >
+                                                {{ item_ }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+        <!-- 丰富的 IAAS 资源 -->
+        <div
+            style="
+                margin: 80px auto 19px auto;
+                color: #000000;
+                font-size: 28px;
+                font-weight: 400;
+                line-height: 33px;
+            "
+        >
+            丰富的 IAAS 资源
+        </div>
+        <!-- 丰富的 IAAS 资源 table 切换 -->
+        <div class="tablelist">
+            <div
+                v-for="(item, index) in tablelist"
+                :key="index"
+                @click="onClickTab(index)"
+            >
+                <img :src="item.img" alt="" class="tablelist-img" />
+                <span
+                    :class="tabletIndex == index ? '__active' : ''"
+                    class="tablelist-title"
+                    >{{ item.name }}</span
+                >
+            </div>
+        </div>
+        <div class="layout tableb-box">
+            <transition name="fade">
+                <div v-if="show">
+                    <div>
+                        <div
+                            class="tableb-box-tit"
+                            v-if="tablelist[tabletIndex].children.tit"
+                        >
+                            {{ tablelist[tabletIndex].children.tit }}
+                        </div>
+                        <div
+                            class="tableb-box-btnm"
+                            v-if="tablelist[tabletIndex].children.tit"
+                        >
+                            <div class="tableb-box-code">
+                                <span
+                                    v-for="(item_, index_) in tablelist[
+                                        tabletIndex
+                                    ].children.code"
+                                    :key="index_"
+                                    >{{ item_ }}</span
+                                >
+                            </div>
+                            <div class="tableb-buttom">
+                                <span>查看详情</span>
+                                <span>知识库</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            class="advantage-box"
+                            :class="
+                                (tablelist[tabletIndex].children.type == 6 &&
+                                    'advantage-box6') ||
+                                (tablelist[tabletIndex].children.type == 5 &&
+                                    'advantage-box5') ||
+                                (tablelist[tabletIndex].children.type == 2 &&
+                                    'advantage-box2')
+                            "
+                        >
+                            <div
+                                v-if="tablelist[tabletIndex].children.type == 2"
+                                class="advantage"
+                            >
+                                平台优势
+                            </div>
+                            <div
+                                v-for="(item, index) in tablelist[tabletIndex]
+                                    .children.list"
+                                :key="index"
+                                class="advantage-box-item"
+                                :class="
+                                    tablelist[tabletIndex].children.imgtype ==
+                                        2 && index == 1
+                                        ? 'advantage-box-item1'
+                                        : ''
+                                "
+                            >
+                                <img
+                                    :src="item.img"
+                                    alt=""
+                                    class="advantage-box-item-img"
+                                />
+                                <div class="advantage-box-item-lable">
+                                    {{ item.lable }}
+                                </div>
+                                <div class="advantage-box-item-value">
+                                    {{ item.value }}
+                                </div>
+                                <div class="advantage-box-item-test">
+                                    {{ item.test }}
+                                </div>
+                                <div
+                                    v-if="item.buttonType == 1"
+                                    class="tableb-buttom"
+                                >
+                                    <span>查看详情</span>
+                                    <span>知识库</span>
+                                </div>
+                                <div
+                                    v-if="item.buttonType == 2"
+                                    class="tableb-buttom"
+                                >
+                                    <span>申请流程</span>
+                                </div>
+                                <div
+                                    v-if="item.buttonType == 4"
+                                    class="tableb-buttom1 tableb-buttom"
+                                >
+                                    <span>查看详情</span>
+                                    <span>知识库</span>
+                                    <span>下载申请表单</span>
+                                </div>
+                            </div>
+                            <img
+                                :class="
+                                    (tablelist[tabletIndex].children.imgtype ==
+                                        1 &&
+                                        'table-img1') ||
+                                    (tablelist[tabletIndex].children.imgtype ==
+                                        2 &&
+                                        'table-img2')
+                                "
+                                v-if="tablelist[tabletIndex].children.img"
+                                :src="tablelist[tabletIndex].children.img"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+        <!-- 苍穹 -->
+        <div class="cang-qiaong">
+            <div>苍穹</div>
+            <div>全球资产可视化管理</div>
+            <div>
+                统一管理中心公司及海外基础设施，涵盖私有云、公有云资源，<br />
+                纳管<b style="font-size: 12px">29</b
+                >个数据中心，云主机达到<b>11561</b>台，新纳管<b>7</b>个境外中心：香港、新加坡、法兰克福、伦敦、旧金山、纽约、香林斯顿
+            </div>
+        </div>
+        <div class="count-list">
+            <div>
+                <span class="lable color">29</span>
+                <span class="title">数据中心</span>
+            </div>
+            <div>
+                <span class="lable color">7</span>
+                <span class="title">境外数据中心</span>
+            </div>
+            <div>
+                <span class="lable color">115561</span>
+                <span class="title">云主机总量</span>
+            </div>
+            <div>
+                <span class="lable">3450</span>
+                <span class="title">物理主机总量</span>
+            </div>
+            <div>
+                <span class="lable">12000TB+</span>
+                <span class="title">存储资源</span>
+            </div>
+            <div>
+                <span class="lable">50GB+</span>
+                <span class="title">带宽总量</span>
+            </div>
+        </div>
+        <!-- 地图 -->
+        <img src="../../public/img/map.png" alt="" class="count-img" />
+        <div class="count-but">全方位的无忧专属上云服务</div>
+        <div class="buttom-box">
+            <div class="buttom-box-item1">400-800-1000</div>
+            <div class="buttom-box-item bd1">
+                <div class="buttom-box-item-top">
+                    <div class="buttom-box-item-top-left">
+                        <span style="font-weight: 700; font-size: 14px"
+                            >专家服务</span
+                        >
+                        <span>如果你有需求，别犹豫现在拨打电话</span>
+                    </div>
+                    <img
+                        src="../../public/img/fot/5.png"
+                        alt=""
+                        class="buttom-box-item-top-right"
+                    />
+                </div>
+                <div class="buttom-box-item-but">
+                    云主机&nbsp;裸金属&nbsp;GPU服务&nbsp;操作系统&nbsp;通用软件&nbsp;存储&nbsp;数据库&nbsp;备份&nbsp;堡垒机&nbsp;监控<br />
+                    安全&nbsp;SSJ证书服务
+                </div>
+            </div>
+            <div class="buttom-box-item">
+                <div class="buttom-box-item-top">
+                    <div class="buttom-box-item-top-left">
+                        <span style="font-weight: 700; font-size: 14px"
+                            >专家服务</span
+                        >
+                        <span>如果你有需求，别犹豫现在拨打电话</span>
+                    </div>
+                    <img
+                        src="../../public/img/fot/6.png"
+                        alt=""
+                        class="buttom-box-item-top-right"
+                    />
+                </div>
+                <div class="buttom-box-item-but">帮助文档</div>
+            </div>
+            <div class="buttom-box-item bd2">
+                <div class="buttom-box-item-top">
+                    <div class="buttom-box-item-top-left">
+                        <span style="font-weight: 700; font-size: 14px"
+                            >专家服务</span
+                        >
+                        <span>如果你有需求，别犹豫现在拨打电话</span>
+                    </div>
+                    <img
+                        src="../../public/img/fot/7.png"
+                        alt=""
+                        class="buttom-box-item-top-right"
+                    />
+                </div>
+                <div class="buttom-box-item-but">云主机</div>
+            </div>
+        </div>
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-top">
+                <div>
+                    <img src="../../public/img/fot/1.png" alt="" />
+                    <span>7*24小时服务</span>
+                </div>
+                <div>
+                    <img src="../../public/img/fot/2.png" alt="" />
+                    <span>免费备案</span>
+                </div>
+                <div>
+                    <img src="../../public/img/fot/3.png" alt="" />
+                    <span>自助退订</span>
+                </div>
+                <div>
+                    <img src="../../public/img/fot/4.png" alt="" />
+                    <span>全周期专业服务</span>
+                </div>
+            </div>
+            <div class="footer-c">
+                <div class="footer-cont">
+                    <span>关于苍穹云</span>
+                    <span>法律声明及隐私政策</span>
+                    <span>廉政举报</span>
+                    <span>联系我们</span>
+                </div>
+            </div>
+            <div class="footer-b">
+                浙公网安备 33010602009975号浙B2-20080101-4
+            </div>
+        </footer>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { headerList, ITlist ,tablelist} from "./datas/index";
+import Swioer from "./components/Swiper.vue";
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+    name: "Home",
+    components: {
+        Swioer,
+    },
+    data() {
+        return {
+            headerList,
+            tablelist,
+            ITlist,
+            platformIndex: 2,
+            headerIndex: 0,
+            opacity: 1,
+            tabletIndex: 0,
+            show: true,
+            show1: true,
+            mouseenter1: true,
+            mouseenter2: true,
+        };
+    },
+    methods: {
+        jwap(i) {},
+        // 鼠标离开
+        mouseleave(type) {
+            if (type == 1) {
+                this.mouseenter1 = true;
+            } else {
+                this.mouseenter2 = true;
+            }
+        },
+        clickEvent(i){
+            if(this.platformIndex == i) return 
+            this.platformIndex = i;
+            this.show1 = false
+            setTimeout(()=>{
+                this.show1 = true
+            })
+        },
+        mouseenter(type) {
+           
+            if (type == 1) {
+                this.mouseenter1 = false;
+            } else {
+                this.mouseenter2 = false;
+            }
+        },
+        onClickTab(i) {
+            if (this.tabletIndex == i) return;
+            this.tabletIndex = i;
+            this.show = false;
+            setTimeout(() => {
+                this.tabletIndex = i;
+                this.show = true;
+            });
+        },
+    },
+};
 </script>
+<style lang='less' scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+.home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: PingFang SC-Regular, PingFang SC;
+    color: #000000;
+    box-sizing: border-box;
+    .layout-cil {
+        width: 962px;
+        margin: 0 auto;
+    }
+    .home-box {
+        width: 962px;
+        header {
+            
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .home-box-img {
+                width: 106px;
+                height: 38px;
+                margin: 16px 0;
+            }
+            .header-right {
+                font-size: 14px;
+                font-weight: 400;
+               
+                :hover {
+                    color: #be8c4b;
+                    cursor: pointer;
+                }
+                > span {
+                    margin-left: 32px;
+                    font-size: 14px;
+                    &.headerActive {
+                        color: #be8c4b;
+                    }
+                }
+            }
+        }
+    }
+    .layout {
+        background: rgba(0, 0, 0, 0.03);
+        width: 100%;
+        .swiper-box {
+            height: 366px;
+        }
+    }
+    .it-boxs1 {
+        .it-boxs {
+            width: 783px;
+            display: flex;
+            flex-wrap: wrap;
+            // background: rgba(196,196,196,0.2);
+            background: #ffffff;
+            
+            .it-box-img {
+                width: 36px;
+                height: 36px;
+                margin: 20px 8px 0 20px;
+            }
+            .it-box-text {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                &-tit {
+                    font-size: 16px;
+                    font-family: PingFang SC-Medium, PingFang SC;
+                    font-weight: bold;
+                    color: #000000;
+                    line-height: 24px;
+                }
+                &-content {
+                    font-size: 12px;
+                    font-family: PingFang SC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #666666;
+                    line-height: 20px;
+                }
+            }
+            :nth-child(4),:nth-child(8) {
+                border-right: none !important;
+            }
+            > div {
+                box-sizing: border-box;
+                width: 195px;
+                height: 169px;
+                display: flex;
+                background: #ffffff;
+                border-top: 1px solid #f8f8f8;
+                border-right: 1px solid #f8f8f8;
+                &.borno {
+                    border-top: none !important;
+                }
+            }
+        }
+    }
+    main {
+        .it {
+            margin-top: 16px;
+            display: flex;
+            .it-box {
+                background: #f8f8f8;
+                width: 472px;
+                box-sizing: border-box;
+                height: 196px;
+
+                cursor: pointer;
+                .it-box-top2 {
+                    color: #ffffff;
+                    background: #be8c4b;
+                    width: 100%;
+                    height: 100%;
+                    padding: 22px 43px 20px 43px;
+                    box-sizing: border-box;
+                    > ul > li {
+                        font-size: 14px !important;
+                    }
+                    line-height: 22px;
+                    animation: identifier 0.5s linear;
+                }
+                @keyframes identifier {
+                    from {
+                        opacity: 0.5;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                .it-box-lable {
+                    font-weight: bold;
+                    font-family: PingFang SC-Medium, PingFang SC;
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+                .it-box-text {
+                    color: #666666;
+                    font-size: 14px;
+                    
+                    line-height: 22px;
+                    margin-top: 4px;
+                }
+            }
+            .it-box-img {
+                width: 48px;
+                height: 48px;
+                margin: 0 16px 0 24px;
+            }
+            .it-box-top {
+                display: flex;
+                margin-top: 32px;
+            }
+            .it-buttom {
+                cursor: pointer;
+                width: 88px;
+                padding: 4px 0;
+                background: #be8c4b;
+                color: #ffffff;
+                line-height: 22px;
+                text-align: center;
+                margin: 44px 0 36px 88px;
+                font-size: 14px;
+            }
+        }
+    }
+    .platform {
+        color: #666666;
+        span {
+            font-size: 14px;
+        }
+        font-weight: 400;
+        font-family: PingFang SC-Regular, PingFang SC;
+        height: 338px;
+        .table {
+            box-sizing: border-box;
+            .countents {
+                background: linear-gradient(
+                    180deg,
+                    rgba(235, 236, 237, 0.66) 0%,
+                    rgba(235, 236, 237, 0.3) 100%
+                );
+                color: #000000;
+                >span {
+                     font-size: 14px 
+                }
+                font-weight: bold;
+                font-family: PingFang SC-Medium, PingFang SC;
+            }
+            &-left {
+                cursor: pointer;
+                width: 175px;
+                .table-left-bck1 {
+                    background: url(../../public/img/Group1.png) no-repeat;
+                    background-size: cover;
+                    color: #999999;
+                }
+                .table-left-bck2 {
+                    background: url(../../public/img/Group2.png) no-repeat;
+                    background-size: cover;
+                    color: #000000;
+                }
+                .table-left-bck3 {
+                    background: url(../../public/img/Group4.png) no-repeat;
+                    background-size: cover;
+                    color: #000000;
+                }
+                .table-left-bck4 {
+                    background: url(../../public/img/Group3.png) no-repeat;
+                    background-size: cover;
+                    color: #999999;
+                }
+
+                > div {
+                    font-family: PingFang SC-Medium, PingFang SC;
+                    height: 169px;
+                    line-height: 28px;
+                    padding: 32px 0 0 16px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    box-sizing: border-box;
+                }
+            }
+            &-cont {
+                background: #ffffff;
+                display: flex;
+                flex-direction: column;
+                > div {
+                    width: 587px;
+                    display: flex;
+                    height: 48px;
+                    align-items: center;
+                }
+                .table-cont-lable {
+                    box-sizing: border-box;
+                    > span {
+                        flex: 1;
+                        height: 100%;
+                        border-bottom: 1px solid #f8f8f8;
+                        display: flex;
+                        align-items: center;
+                        border-left: 1px solid #f8f8f8;
+                        border-right: 1px solid #f8f8f8;
+                        justify-content: center;
+                    }
+                }
+                .bor {
+                    border-left: none !important;
+                }
+                .table-cont-lable1 {
+                    > span {
+                        flex: auto;
+                        height: 100%;
+                        border-bottom: 1px solid #f8f8f8;
+                        display: flex;
+                        align-items: center;
+                        border-left: 1px solid #f8f8f8;
+                        border-right: 1px solid #f8f8f8;
+                        justify-content: center;
+                    }
+                    .spanms_ {
+                        width: 121.7px;
+                    }
+                }
+                .table-cont-lable2 {
+                    :nth-child(1) {
+                        flex: 1;
+                        height: 100%;
+                        border-bottom: 1px solid #f8f8f8;
+                        display: flex;
+                        align-items: center;
+                        border-left: 1px solid #f8f8f8;
+                        border-right: 1px solid #f8f8f8;
+                        justify-content: center;
+                    }
+                    :nth-child(2) {
+                        width: 194.5px;
+                        height: 100%;
+                        border-bottom: 1px solid #f8f8f8;
+                        display: flex;
+                        align-items: center;
+                        border-left: 1px solid #f8f8f8;
+                        border-right: 1px solid #f8f8f8;
+                        justify-content: center;
+                    }
+                }
+            }
+            &-right {
+                background: #ffffff;
+                width: 195px;
+                .table-right-lable {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    :nth-child(1) {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 48px;
+                        width: 100%;
+                    }
+                    .tright-conent {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%;
+                        > span {
+                            width: 100%;
+                            display: block;
+                            height: 71.1px;
+                            border-bottom: 1px solid #f8f8f8;
+                            display: flex;
+                            align-items: center;
+                            border-left: 1px solid #f8f8f8;
+                            border-right: 1px solid #f8f8f8;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .tablelist {
+        margin: 0 auto;
+        display: flex;
+        > div {
+            display: flex;
+            flex-direction: column;
+            margin-right: 40px;
+            align-items: center;
+            cursor: pointer;
+        }
+        .tablelist-img {
+            width: 64px;
+            height: 64px;
+        }
+        .tablelist-title {
+            font-size: 16px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #000000;
+            line-height: 48px;
+            text-align: center;
+            width: 100%;
+            &.__active {
+                border-bottom: 4px solid #bd8c4a;
+            }
+        }
+    }
+    .tableb-box {
+        padding-bottom: 60px;
+        &-tit {
+            margin-top: 30px;
+            margin-bottom: 8px;
+            font-size: 16px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #000000;
+            line-height: 24px;
+        }
+        &-code {
+            display: flex;
+            > span {
+                padding: 4px 6px;
+                border: 1px solid #be8c4b;
+                color: #be8c4b;
+                font-size: 12px;
+                margin-right: 9px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+            }
+        }
+        .tableb-box-btnm {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        > div {
+            margin: 0 auto;
+            width: 962px;
+        }
+        .advantage {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+            color: #000000;
+            line-height: 23px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            margin-top: 30px;
+        }
+        .advantage-box {
+            display: flex;
+            flex-wrap: wrap;
+            .table-img1 {
+                height: 293px;
+                width: 100%;
+                margin-top: 22px;
+            }
+            .table-img2 {
+                width: 100%;
+                height: 440px;
+                margin-top: 22px;
+            }
+            &-item {
+                margin-top: 34px;
+                width: 302px;
+                margin-right: 18px;
+                &-img {
+                    width: 48px;
+                    height: 48px;
+                    margin-bottom: 8px;
+                }
+                &-lable {
+                    font-size: 20px;
+                    font-family: PingFang SC-Regular, PingFang SC;
+                    font-weight: 700;
+                    color: #000000;
+                    line-height: 23px;
+                }
+                &-value {
+                    font-size: 12px;
+                    font-family: PingFang SC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #878787;
+                    margin: 3px 0 8px 0;
+                }
+                &-test {
+                    font-size: 12px;
+                    font-family: PingFang SC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #878787;
+                    margin-top: 16px;
+                }
+            }
+        }
+        .advantage-box6 {
+            :nth-child(4) {
+                margin-right: 0 !important;
+            }
+            :nth-child(2) {
+                .advantage-box-item-value {
+                    margin-bottom: 30px;
+                }
+            }
+            :nth-child(3) {
+                .advantage-box-item-value {
+                    margin-bottom: 30px;
+                }
+            }
+            :nth-child(5) {
+                .advantage-box-item-value {
+                    margin-bottom: 44px;
+                }
+            }
+            :nth-child(6) {
+                .advantage-box-item-value {
+                    margin-bottom: 30px;
+                }
+            }
+
+            > div {
+                width: 228px !important;
+                margin-right: 16px !important;
+            }
+        }
+        .advantage-box5 {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            :nth-child(2) {
+                margin-right: 0 !important;
+            }
+            .advantage-box-item {
+                flex: 1;
+                margin-right: 14px;
+            }
+        }
+        .advantage-box2 {
+            display: flex;
+            justify-content: space-around;
+            .advantage-box-item {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                margin-top: 7px;
+            }
+            .advantage-box-item-lable {
+                font-size: 16px;
+                margin-left: 8px;
+            }
+        }
+        .advantage-box-item1 {
+            padding-left: 180px;
+            box-sizing: border-box;
+        }
+    }
+    .tableb-buttom1 {
+        > span {
+            width: 72px;
+            height: 26px;
+            margin-right: 3px;
+            position: relative;
+            left: -3px;
+        }
+        :last-child {
+            margin-right: 0 !important;
+        }
+    }
+    .tableb-buttom {
+        display: flex;
+        :nth-child(1) {
+            background: #bd8c4a;
+            margin-right: 4px;
+            color: #ffffff;
+        }
+        > span {
+            width: 78px;
+            height: 28px;
+            background: rgba(189, 140, 74, 0.1);
+            color: #bd8c4a;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+    }
+    .cang-qiaong {
+        margin: 80px auto 0 auto;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #000000;
+        :nth-child(1) {
+            font-size: 28px;
+            line-height: 36px;
+        }
+        :nth-child(2) {
+            font-size: 16px;
+            line-height: 24px;
+            margin-bottom: 16px;
+        }
+        :nth-child(3) {
+            font-size: 12px;
+            color: #666666;
+            b {
+                color: #000000;
+            }
+        }
+        :nth-child(4) {
+            font-size: 12px;
+            color: #666666;
+            b {
+                color: #000000;
+            }
+        }
+        > div {
+            text-align: center;
+        }
+    }
+    .count-list {
+        display: flex;
+        justify-content: space-between;
+        width: 962px;
+        margin: 32px auto;
+        > div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .lable {
+                font-weight: bold;
+                color: #000000;
+                font-size: 28px;
+                line-height: 36px;
+            }
+            .title {
+                color: #888888;
+                font-size: 12px;
+                line-height: 20px;
+                margin-top: 4px;
+            }
+            .color {
+                color: #bd8c4a;
+            }
+        }
+    }
+    .count-img {
+        width: 962px;
+        height: 500px;
+        margin-bottom: 80px;
+    }
+    .count-but {
+        margin: 0 auto;
+        font-weight: 400;
+        color: #000000;
+        line-height: 36px;
+        font-size: 28px;
+        font-family: PingFang SC-Regular, PingFang SC;
+    }
+    .buttom-box {
+        display: flex;
+        flex-wrap: wrap;
+        width: 962px;
+        margin: 32px auto 0 auto;
+        .bd1 {
+            border-top: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf;
+        }
+        .bd2 {
+            border-left: 1px solid #dfdfdf;
+        }
+        > div {
+            width: 480px;
+            height: 150px;
+        }
+        .buttom-box-item1 {
+            background: #be8c4b;
+            font-size: 20px;
+            font-family: DIN Alternate-Bold, DIN Alternate;
+            font-weight: bold;
+            color: #ffffff;
+            line-height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .buttom-box-item {
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+            box-sizing: border-box;
+            &-top {
+                height: 90px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &-left {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 12px;
+                    font-family: PingFang SC-Regular, PingFang SC;
+                    :nth-child(1) {
+                        color: #000000;
+                        line-height: 22px;
+                    }
+                    :nth-child(2) {
+                        color: #666666;
+                        line-height: 20px;
+                        margin-top: 12px;
+                    }
+                }
+                &-right {
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+            &-but {
+                color: #bd8c4a;
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+    }
+    .footer {
+        width: 100%;
+        height: 300px;
+        background: #181818;
+        &-top {
+            width: 962px;
+            height: 140px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            align-items: center;
+            > div {
+                display: flex;
+                align-items: center;
+                > img {
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 12px;
+                }
+                > span {
+                    font-weight: bold;
+                    color: #ffffff;
+                    font-size: 12px;
+                    line-height: 20px;
+                }
+            }
+        }
+        &-c {
+            width: 100%;
+            border-top: 1px solid rgba(223, 223, 223, 0.1);
+            border-bottom: 1px solid rgba(223, 223, 223, 0.1);
+            margin-bottom: 24px;
+        }
+        &-cont {
+            width: 1440px;
+            margin: 0 auto;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            > span {
+                color: #999999;
+                font-size: 12px;
+                margin: 0 20px;
+            }
+        }
+        &-b {
+            line-height: 18px;
+            color: #999999;
+            text-align: center;
+        }
+    }
+}
+</style>
