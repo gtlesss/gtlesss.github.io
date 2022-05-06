@@ -3,7 +3,11 @@
         <!-- 顶部导航 -->
         <div class="home-box">
             <header>
-                <img src="../../public/img/Frame.png" alt="" class="home-box-img" />
+                <img
+                    src="../../public/img/Frame.png"
+                    alt=""
+                    class="home-box-img"
+                />
                 <div class="header-right">
                     <span
                         :class="headerIndex == index ? 'headerActive' : ''"
@@ -16,9 +20,7 @@
         </div>
         <!-- 轮播图 -->
         <div class="layout">
-            <div class="swiper-box layout-cil">
-                <Swioer />
-            </div>
+            <Swioer />
         </div>
         <!-- 支撑业务快速发展的IT 基础设施 -->
         <main class="home-box">
@@ -124,8 +126,18 @@
                             key="fade1"
                         >
                             <div class="table-left">
-                                <div class="table-left-bck1" @click="clickEvent(2)">场景</div>
-                                <div class="table-left-bck2" @click="clickEvent(1)">苍穹云</div>
+                                <div
+                                    class="table-left-bck1"
+                                    @click="clickEvent(2)"
+                                >
+                                    场景
+                                </div>
+                                <div
+                                    class="table-left-bck2"
+                                    @click="clickEvent(1)"
+                                >
+                                    苍穹云
+                                </div>
                             </div>
                             <div class="table-cont">
                                 <div class="table-cont-lable countents">
@@ -191,15 +203,25 @@
                         </div>
                         <div v-else style="display: flex" key="fade2">
                             <div class="table-left">
-                                <div class="table-left-bck3" @click="clickEvent(2)">场景</div>
-                                <div class="table-left-bck4" @click="clickEvent(1)">苍穹云</div>
+                                <div
+                                    class="table-left-bck3"
+                                    @click="clickEvent(2)"
+                                >
+                                    场景
+                                </div>
+                                <div
+                                    class="table-left-bck4"
+                                    @click="clickEvent(1)"
+                                >
+                                    苍穹云
+                                </div>
                             </div>
                             <div class="it-boxs1">
                                 <div class="it-boxs">
                                     <div
                                         v-for="(item, index) in ITlist"
                                         :key="index"
-                                        :class="index<3?'borno':''"
+                                        :class="index <= 3 ? 'borno' : ''"
                                     >
                                         <img
                                             :src="item.img"
@@ -278,7 +300,12 @@
                                     >{{ item_ }}</span
                                 >
                             </div>
-                            <div class="tableb-buttom">
+                            <div
+                                class="tableb-buttom"
+                                v-if="
+                                    tablelist[tabletIndex].children.typebut != 1
+                                "
+                            >
                                 <span>查看详情</span>
                                 <span>知识库</span>
                             </div>
@@ -347,7 +374,7 @@
                                 >
                                     <span>查看详情</span>
                                     <span>知识库</span>
-                                    <span>下载申请表单</span>
+                                    <!-- <span>下载申请表单</span> -->
                                 </div>
                             </div>
                             <img
@@ -370,7 +397,7 @@
         </div>
         <!-- 苍穹 -->
         <div class="cang-qiaong">
-            <div>苍穹</div>
+            <div style="margin: 0 0 4px 0">苍穹</div>
             <div>全球资产可视化管理</div>
             <div>
                 统一管理中心公司及海外基础设施，涵盖私有云、公有云资源，<br />
@@ -408,14 +435,41 @@
         <img src="../../public/img/map.png" alt="" class="count-img" />
         <div class="count-but">全方位的无忧专属上云服务</div>
         <div class="buttom-box">
-            <div class="buttom-box-item1">400-800-1000</div>
+            <div @mouseleave="mouseleaveButtom()" @mouseenter="mouseenterButtom()" class="buttom-box-item23">
+                <div v-if="!isMouseleaveButtom" class="buttom-box-item1">400-800-1000</div>
+                <div
+                    v-else
+                    class="buttom-box-item bd1"
+                    style="border-right: 1px solid #dfdfdf;width: 100%; height: 100%;"
+                >
+                    <div class="buttom-box-item-top">
+                        <div class="buttom-box-item-top-left">
+                            <span style="font-weight: 700; font-size: 14px"
+                                >联系我们</span
+                            >
+                            <span>如果你有需求，别犹豫现在拨打电话</span>
+                        </div>
+                        <img
+                            src="../../public/img/fot/8.png"
+                            alt=""
+                            class="buttom-box-item-top-right"
+                        />
+                    </div>
+                    <div class="buttom-box-item-but">
+                        云主机&nbsp;裸金属&nbsp;GPU服务&nbsp;操作系统&nbsp;通用软件&nbsp;存储&nbsp;数据库&nbsp;备份&nbsp;堡垒机&nbsp;监控<br />
+                        安全&nbsp;SSJ证书服务
+                    </div>
+                </div>
+            </div>
             <div class="buttom-box-item bd1">
                 <div class="buttom-box-item-top">
                     <div class="buttom-box-item-top-left">
                         <span style="font-weight: 700; font-size: 14px"
                             >专家服务</span
                         >
-                        <span>如果你有需求，别犹豫现在拨打电话</span>
+                        <span
+                            >上万名技术专家为企业量身打造适合业务发展的专业服务</span
+                        >
                     </div>
                     <img
                         src="../../public/img/fot/5.png"
@@ -424,17 +478,18 @@
                     />
                 </div>
                 <div class="buttom-box-item-but">
-                    云主机&nbsp;裸金属&nbsp;GPU服务&nbsp;操作系统&nbsp;通用软件&nbsp;存储&nbsp;数据库&nbsp;备份&nbsp;堡垒机&nbsp;监控<br />
-                    安全&nbsp;SSJ证书服务
+                    鲁飞&nbsp;&nbsp;Fei.Lu@cicc.com.cn
+                    &nbsp;&nbsp;&nbsp;严飞&nbsp;&nbsp;Fei.Yan@cicc.com.cn <br />
+                    张禹&nbsp;&nbsp;Yuc.Zhang@cicc.com.cn&nbsp;&nbsp;&nbsp;张桂元&nbsp;&nbsp;Guiyuan.Zhang@cicc.com.cn
                 </div>
             </div>
             <div class="buttom-box-item">
                 <div class="buttom-box-item-top">
                     <div class="buttom-box-item-top-left">
                         <span style="font-weight: 700; font-size: 14px"
-                            >专家服务</span
+                            >文档与工具</span
                         >
-                        <span>如果你有需求，别犹豫现在拨打电话</span>
+                        <span>为您提供全面的产品文档，新手教程及工具</span>
                     </div>
                     <img
                         src="../../public/img/fot/6.png"
@@ -448,9 +503,11 @@
                 <div class="buttom-box-item-top">
                     <div class="buttom-box-item-top-left">
                         <span style="font-weight: 700; font-size: 14px"
-                            >专家服务</span
+                            >建议反馈</span
                         >
-                        <span>如果你有需求，别犹豫现在拨打电话</span>
+                        <span
+                            >在此反馈您对苍穹云的任何建议，苍穹云未来会更好</span
+                        >
                     </div>
                     <img
                         src="../../public/img/fot/7.png"
@@ -458,7 +515,7 @@
                         class="buttom-box-item-top-right"
                     />
                 </div>
-                <div class="buttom-box-item-but">云主机</div>
+                <div class="buttom-box-item-but">聆听体验反馈</div>
             </div>
         </div>
         <!-- footer -->
@@ -497,7 +554,7 @@
 </template>
 
 <script>
-import { headerList, ITlist ,tablelist} from "./datas/index";
+import { headerList, ITlist, tablelist } from "./datas/index";
 import Swioer from "./components/Swiper.vue";
 export default {
     name: "Home",
@@ -517,6 +574,7 @@ export default {
             show1: true,
             mouseenter1: true,
             mouseenter2: true,
+            isMouseleaveButtom:true
         };
     },
     methods: {
@@ -529,16 +587,15 @@ export default {
                 this.mouseenter2 = true;
             }
         },
-        clickEvent(i){
-            if(this.platformIndex == i) return 
+        clickEvent(i) {
+            if (this.platformIndex == i) return;
             this.platformIndex = i;
-            this.show1 = false
-            setTimeout(()=>{
-                this.show1 = true
-            })
+            this.show1 = false;
+            setTimeout(() => {
+                this.show1 = true;
+            });
         },
         mouseenter(type) {
-           
             if (type == 1) {
                 this.mouseenter1 = false;
             } else {
@@ -554,6 +611,12 @@ export default {
                 this.show = true;
             });
         },
+        mouseleaveButtom(){
+           this.isMouseleaveButtom = true
+        },
+        mouseenterButtom(){
+            this.isMouseleaveButtom = false
+        }
     },
 };
 </script>
@@ -580,19 +643,19 @@ export default {
     .home-box {
         width: 962px;
         header {
-            
             display: flex;
             align-items: center;
             justify-content: space-between;
+            height: 70px;
             .home-box-img {
                 width: 106px;
                 height: 38px;
-                margin: 16px 0;
+                object-fit: cover;
             }
             .header-right {
                 font-size: 14px;
                 font-weight: 400;
-               
+
                 :hover {
                     color: #be8c4b;
                     cursor: pointer;
@@ -608,11 +671,9 @@ export default {
         }
     }
     .layout {
-        background: rgba(0, 0, 0, 0.03);
+        background: #F8F8F8;
         width: 100%;
-        .swiper-box {
-            height: 366px;
-        }
+        
     }
     .it-boxs1 {
         .it-boxs {
@@ -621,7 +682,7 @@ export default {
             flex-wrap: wrap;
             // background: rgba(196,196,196,0.2);
             background: #ffffff;
-            
+
             .it-box-img {
                 width: 36px;
                 height: 36px;
@@ -646,7 +707,8 @@ export default {
                     line-height: 20px;
                 }
             }
-            :nth-child(4),:nth-child(8) {
+            :nth-child(4),
+            :nth-child(8) {
                 border-right: none !important;
             }
             > div {
@@ -704,7 +766,7 @@ export default {
                 .it-box-text {
                     color: #666666;
                     font-size: 14px;
-                    
+
                     line-height: 22px;
                     margin-top: 4px;
                 }
@@ -748,8 +810,8 @@ export default {
                     rgba(235, 236, 237, 0.3) 100%
                 );
                 color: #000000;
-                >span {
-                     font-size: 14px 
+                > span {
+                    font-size: 14px;
                 }
                 font-weight: bold;
                 font-family: PingFang SC-Medium, PingFang SC;
@@ -918,7 +980,7 @@ export default {
         padding-bottom: 60px;
         &-tit {
             margin-top: 30px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             font-size: 16px;
             font-family: PingFang SC-Regular, PingFang SC;
             font-weight: 400;
@@ -937,6 +999,7 @@ export default {
                 justify-content: center;
                 align-items: center;
                 box-sizing: border-box;
+                border-radius: 2px;
             }
         }
         .tableb-box-btnm {
@@ -966,12 +1029,12 @@ export default {
             .table-img1 {
                 height: 293px;
                 width: 100%;
-                margin-top: 22px;
+                margin-top: 32px;
             }
             .table-img2 {
                 width: 100%;
                 height: 440px;
-                margin-top: 22px;
+                margin-top: 32px;
             }
             &-item {
                 margin-top: 34px;
@@ -994,7 +1057,7 @@ export default {
                     font-family: PingFang SC-Regular, PingFang SC;
                     font-weight: 400;
                     color: #878787;
-                    margin: 3px 0 8px 0;
+                    margin: 12px 0 8px 0;
                 }
                 &-test {
                     font-size: 12px;
@@ -1054,7 +1117,11 @@ export default {
                 flex: 1;
                 display: flex;
                 align-items: center;
-                margin-top: 7px;
+                margin-top: 32px;
+            }
+            .advantage-box-item-img {
+                width: 40px;
+                height: 40px;
             }
             .advantage-box-item-lable {
                 font-size: 16px;
@@ -1184,6 +1251,18 @@ export default {
             width: 480px;
             height: 150px;
         }
+        .buttom-box-item23 {
+            width: 480px;
+            height: 150px;
+        }
+         @keyframes identifierbuttom {
+            from {
+                opacity: 0.5;
+            }
+            to {
+                opacity: 1;
+            }
+        }
         .buttom-box-item1 {
             background: #be8c4b;
             font-size: 20px;
@@ -1194,6 +1273,9 @@ export default {
             display: flex;
             justify-content: center;
             align-items: center;
+            width: 100%;
+            height: 100%;
+            animation: identifierbuttom 0.5s linear;
         }
         .buttom-box-item {
             display: flex;
