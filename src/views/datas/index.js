@@ -47,7 +47,7 @@ export const tablelist = [
         img: require("../../../public/img/table/2.png"),
         children:{
             tit:' 稳定、安全、高性能的存储产品。以及不同类型、不同使用场景的存储选型参考及解决方案',
-            code:['块存储','NAS存储'],
+            code:['块存储','对象存储','云主机','NAS存储'],
             type:5,
             list:[
                 {
@@ -58,6 +58,18 @@ export const tablelist = [
                 },
                 {
                     img:require("../../../public/img/tables/2/2.png"),
+                    lable:'对象存储',
+                    value:'适用面向海量文件（数据文件量在一百万以上），互联网等应用的非结构化文件数据存储，对数据安全、合规、扩展性较高要求的场景。',
+                    buttonType:2
+                },
+                {
+                    img:require("../../../public/img/tables/2/3.png"),
+                    lable:'云主机',
+                    value:'提供低时延、持久性、高可靠的块级存储；适用面向数据库，虚拟化类关键交易类应用结构化数据存储，对性能及可靠性要求高的场景',
+                    buttonType:2
+                },
+                {
+                    img:require("../../../public/img/tables/2/4.png"),
                     lable:'NAS存储',
                     value:'适用面向邮件、文档管理类非结构化/半结构化文件应用数据存储，对性能要求较高，数据规模相对较小（数据文件量在一百万以内',
                     buttonType:2
@@ -134,14 +146,17 @@ export const tablelist = [
                     lable:'oracle',
                     value:'Oracle是世界上使用最广泛的关系数据库管理系统，系统可移植性好、使用方便、功能强，是一种高效率的、可靠性好的、适应高吞吐量的数据库方案，适用于核心交易系统。 ',
                     buttonType:5,
-                    test:'开放性 / 安全性 / 高性能 / 高生产率 / 使用风险低'
+                    // test:'开放性 / 安全性 / 高性能 / 高生产率 / 使用风险低',
+                    test:['开放性','安全性','高性能','高生产率','使用风险低']
                 },
                 {
                     img:require("../../../public/img/tables/5/2.png"),
                     lable:'mysql',
                     value:'MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的 RDBMS应用软件之一，现属于Oracle旗下产品，提供免费的社区版供用户使用 ',
                     buttonType:5,
-                    test:'简单易用 / 成本低 / 轻量小巧 / 高兼容性 / 速度快 / 服务稳'
+                    // test:'简单易用 / 成本低 / 轻量小巧 / 高兼容性 / 速度快 / 服务稳',
+                    test:['简单易用','成本低','轻量小巧','高兼容性','速度快','服务稳',],
+                    testl:6
                 }
             ]
         }

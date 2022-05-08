@@ -312,6 +312,7 @@
                         </div>
                     </div>
                     <div>
+                        <div v-if="tablelist[tabletIndex].children.type == 2" class="advantage" >平台优势</div>
                         <div
                             class="advantage-box"
                             :class="
@@ -323,12 +324,7 @@
                                     'advantage-box2')
                             "
                         >
-                            <div
-                                v-if="tablelist[tabletIndex].children.type == 2"
-                                class="advantage"
-                            >
-                                平台优势
-                            </div>
+                            
                             <div
                                 v-for="(item, index) in tablelist[tabletIndex]
                                     .children.list"
@@ -336,7 +332,7 @@
                                 class="advantage-box-item"
                                 :class="
                                     tablelist[tabletIndex].children.imgtype ==
-                                        2 && index == 1
+                                        2 
                                         ? 'advantage-box-item1'
                                         : ''
                                 "
@@ -352,8 +348,21 @@
                                 <div class="advantage-box-item-value">
                                     {{ item.value }}
                                 </div>
-                                <div class="advantage-box-item-test">
-                                    {{ item.test }}
+                                <div
+                                    v-if="item.test"
+                                    class="advantage-box-item-test"
+                                    :class="
+                                        item.testl == 6
+                                            ? 'advantage-box-item-test-marg'
+                                            : ''
+                                    "
+                                >
+                                    <span
+                                        v-for="(item_s, index_s) in item.test"
+                                        :key="index_s"
+                                    >
+                                        {{ item_s }}
+                                    </span>
                                 </div>
                                 <div
                                     v-if="item.buttonType == 1"
@@ -377,20 +386,18 @@
                                     <!-- <span>下载申请表单</span> -->
                                 </div>
                             </div>
-                            <img
-                                :class="
-                                    (tablelist[tabletIndex].children.imgtype ==
-                                        1 &&
-                                        'table-img1') ||
-                                    (tablelist[tabletIndex].children.imgtype ==
-                                        2 &&
-                                        'table-img2')
-                                "
-                                v-if="tablelist[tabletIndex].children.img"
-                                :src="tablelist[tabletIndex].children.img"
-                                alt=""
-                            />
                         </div>
+                        <img
+                            :class="
+                                (tablelist[tabletIndex].children.imgtype == 1 &&
+                                    'table-img1') ||
+                                (tablelist[tabletIndex].children.imgtype == 2 &&
+                                    'table-img2')
+                            "
+                            v-if="tablelist[tabletIndex].children.img"
+                            :src="tablelist[tabletIndex].children.img"
+                            alt=""
+                        />
                     </div>
                 </div>
             </transition>
@@ -439,7 +446,11 @@
                 <!-- @mouseleave="mouseleaveButtom()" @mouseenter="mouseenterButtom()" -->
                 <div
                     class="buttom-box-item bd1"
-                    style="border-right: 1px solid #dfdfdf;width: 100%; height: 100%;"
+                    style="
+                        border-right: 1px solid #dfdfdf;
+                        width: 100%;
+                        height: 100%;
+                    "
                 >
                     <div class="buttom-box-item-top">
                         <div class="buttom-box-item-top-left">
@@ -455,20 +466,41 @@
                         />
                     </div>
                     <div class="buttom-box-item-but">
-                        <span @mouseenter="(e)=>mouseenterButtom(index,e)" :class="index==8?'_nowas':''" class="buttom-box-item-but-lable" 
-                            v-for="(item,index) in yunlsit" :key="index">
-                            {{item.lable}}
-                            <div v-if="!isMouseleaveButtom && index==mouseenterButtomIndex" class="buttom-box-item1" style=" position: absolute;
-                                z-index: 9;
-                                bottom: 20px;left:-5px" >
-                                <div v-for="(_item,_index) in yunlsit[mouseenterButtomIndex].children" :key="_index">
-                                    <div class="chil_1">{{_item.name}}</div>
-                                    <div class="chil_2">{{_item.tel}}} {{_item.url}}</div>
+                        <span
+                            @mouseenter="(e) => mouseenterButtom(index, e)"
+                            :class="index == 8 ? '_nowas' : ''"
+                            class="buttom-box-item-but-lable"
+                            v-for="(item, index) in yunlsit"
+                            :key="index"
+                        >
+                            {{ item.lable }}
+                            <div
+                                v-if="
+                                    !isMouseleaveButtom &&
+                                    index == mouseenterButtomIndex
+                                "
+                                class="buttom-box-item1"
+                                style="
+                                    position: absolute;
+                                    z-index: 9;
+                                    bottom: 20px;
+                                    left: -5px;
+                                "
+                            >
+                                <div
+                                    v-for="(_item, _index) in yunlsit[
+                                        mouseenterButtomIndex
+                                    ].children"
+                                    :key="_index"
+                                >
+                                    <div class="chil_1">{{ _item.name }}</div>
+                                    <div class="chil_2">
+                                        {{ _item.tel }}} {{ _item.url }}
+                                    </div>
                                 </div>
                                 <div class="buttom-box-item1-bor"></div>
                             </div>
                         </span>
-                        
                     </div>
                 </div>
             </div>
@@ -565,24 +597,7 @@
 </template>
 
 <script>
-// 裸金属：刘洋： 18613831525  Yang6.Liu@cicc.com.cn、 高满  18600943657  Man.Gao@cicc.com.cn
-// 容器   鲁非   13811632075 Fei.Lu@cicc.com.cn、严飞   15600748776 Fei.Yan@cicc.com.cn
-// 天梯（CD）    鲁非   13811632075 Fei.Lu@cicc.com.cn、曲植  13488642338  Zhi.Qu@cicc.com.cn
-// GPU服务器  刘洋  18613831525  Yang6.Liu@cicc.com.cn、 高满 18600943657  Man.Gao@cicc.com.cn
-// 操作系统 刘洋  18613831525  Yang6.Liu@cicc.com.cn
-// 通用软件 曲植   13488642338  Zhi.Qu@cicc.com.cn
-// 存储  刘帅   18647144496  Shuai.Liu@cicc.com.cn
-// 网络  梁红伟    13910195082  Hongwei.Liang@cicc.com.cn
-// 数据库   杨盼   18910968781  Pan.Yang@cicc.com.cn、 刘帅   18647144496  Shuai.Liu@cicc.com.cn
-// 备份 杨盼 18910968781  Pan.Yang@cicc.com.cn
-// 堡垒机 杨文杰 15989426333  Wenjie.Yang@cicc.com.cn
-// 监控 刘洋 18613831525  Yang6.Liu@cicc.com.cn、刘帅 18647144496  Shuai.Liu@cicc.com.cn、杨盼 18910968781  Pan.Yang@cicc.com.cn、、严飞  15600748776  Fei.Yan@cicc.com.cn
-// 日志 杨文杰  15989426333  Wenjie.Yang@cicc.com.cn
-// 安全 曲植 13488642338  Zhi.Qu@cicc.com.cn、程乾  13801309038  Qian.Cheng@cicc.com.cn
-// SSL证书服务 刘洋 18613831525  Yang6.Liu@cicc.com.cn
-// 域名DNS服务:刘洋18613831525  Yang6.Liu@cicc.com.cn
-                       
-import { headerList, ITlist, tablelist ,yunlsit} from "./datas/index";
+import { headerList, ITlist, tablelist, yunlsit } from "./datas/index";
 import Swioer from "./components/Swiper.vue";
 export default {
     name: "Home",
@@ -603,30 +618,11 @@ export default {
             show1: true,
             mouseenter1: true,
             mouseenter2: true,
-            isMouseleaveButtom:true,
-            mouseenterButtomIndex:null,
-            offsetWidths:0
+            isMouseleaveButtom: true,
+            mouseenterButtomIndex: null,
+            offsetWidths: 0,
         };
     },
-    // computed:{
-    //      offsetWidth(){
-    //         let rpx = 0
-    //         if(this.mouseenterButtomIndex == 0 ||this.mouseenterButtomIndex == 1||this.mouseenterButtomIndex == 9||this.mouseenterButtomIndex == 11){
-    //             rpx = 4
-    //         }
-    //         if(this.mouseenterButtomIndex == 1||this.mouseenterButtomIndex == 7||this.mouseenterButtomIndex == 8||this.mouseenterButtomIndex == 10||this.mouseenterButtomIndex == 12||this.mouseenterButtomIndex == 13||this.mouseenterButtomIndex == 14){
-    //             rpx = 2
-    //         }
-    //         if(this.mouseenterButtomIndex == 4||this.mouseenterButtomIndex == 5||this.mouseenterButtomIndex == 6||this.mouseenterButtomIndex == 15||this.mouseenterButtomIndex == 16){
-    //             rpx = 15
-    //         }
-    //         console.log( this.offsetWidths);
-    //        this.offsetWidths = rpx
-    //        return {
-    //            rpx
-    //        }
-    //     },
-    // },
     methods: {
         jwap(i) {},
         // 鼠标离开
@@ -661,14 +657,12 @@ export default {
                 this.show = true;
             });
         },
-        mouseleaveButtom(){
-           this.isMouseleaveButtom = true
+        mouseleaveButtom() {
+            this.isMouseleaveButtom = true;
         },
-        mouseenterButtom(index,e){
-            // this.offsetWidth = e.target.offsetWidth
-            // console.log(e);
-            this.mouseenterButtomIndex = index
-            this.isMouseleaveButtom = false
+        mouseenterButtom(index, e) {
+            this.mouseenterButtomIndex = index;
+            this.isMouseleaveButtom = false;
         },
     },
 };
@@ -724,9 +718,8 @@ export default {
         }
     }
     .layout {
-        background: #F8F8F8;
+        background: #f8f8f8;
         width: 100%;
-        
     }
     .it-boxs1 {
         .it-boxs {
@@ -1043,7 +1036,9 @@ export default {
         }
         &-code {
             display: flex;
+            margin-bottom: 12px;
             > span {
+                white-space: nowrap;
                 padding: 4px 6px;
                 border: 1px solid #be8c4b;
                 color: #be8c4b;
@@ -1059,8 +1054,9 @@ export default {
         .tableb-box-btnm {
             display: flex;
             justify-content: space-between;
-            padding-bottom: 30px;
+            padding-bottom: 18px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
         }
         > div {
             margin: 0 auto;
@@ -1077,19 +1073,20 @@ export default {
             font-weight: 400;
             margin-top: 30px;
         }
+        .table-img1 {
+            height: 293px;
+            width: 100%;
+            margin-top: 32px;
+        }
+        .table-img2 {
+            width: 100%;
+            height: 440px;
+            margin-top: 32px;
+        }
         .advantage-box {
             display: flex;
             flex-wrap: wrap;
-            .table-img1 {
-                height: 293px;
-                width: 100%;
-                margin-top: 32px;
-            }
-            .table-img2 {
-                width: 100%;
-                height: 440px;
-                margin-top: 32px;
-            }
+
             &-item {
                 margin-top: 34px;
                 width: 302px;
@@ -1112,13 +1109,32 @@ export default {
                     font-weight: 400;
                     color: #878787;
                     margin: 12px 0 8px 0;
+                    line-height: 20px;
+                }
+                .advantage-box-item-test-marg {
+                    margin-top: 27px;
                 }
                 &-test {
                     font-size: 12px;
                     font-family: PingFang SC-Regular, PingFang SC;
                     font-weight: 400;
                     color: #878787;
-                    margin-top: 16px;
+                    margin-top: 6px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+                    > span {
+                        border: 1px solid #bd8c4a;
+                        padding: 2px 6px;
+                        font-size: 14px;
+                        font-family: PingFang SC-Regular, PingFang SC;
+                        font-weight: 400;
+                        color: #bd8c4a;
+                        line-height: 22px;
+                        margin-right: 10px;
+                        margin-top: 10px;
+                        white-space: nowrap;
+                    }
                 }
             }
         }
@@ -1156,22 +1172,25 @@ export default {
             width: 100% !important;
             display: flex !important;
             justify-content: space-between !important;
-            :nth-child(2) {
-                margin-right: 0 !important;
-            }
+            flex-wrap: wrap;
+
             .advantage-box-item {
-                flex: 1;
-                margin-right: 14px;
+                width: 47%;
+                margin-right: 0;
             }
         }
         .advantage-box2 {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            padding: 0 25px;
+            box-sizing: border-box;
             .advantage-box-item {
-                flex: 1;
+                margin-right: 0;
                 display: flex;
+                width: auto;
                 align-items: center;
                 margin-top: 32px;
+              
             }
             .advantage-box-item-img {
                 width: 40px;
@@ -1183,8 +1202,10 @@ export default {
             }
         }
         .advantage-box-item1 {
-            padding-left: 180px;
+            flex: 1;
             box-sizing: border-box;
+            display: flex;
+           justify-content: center;
         }
     }
     .tableb-buttom1 {
@@ -1308,9 +1329,8 @@ export default {
         .buttom-box-item23 {
             width: 480px;
             height: 150px;
-            
         }
-         @keyframes identifierbuttom {
+        @keyframes identifierbuttom {
             from {
                 opacity: 0.5;
             }
@@ -1321,6 +1341,7 @@ export default {
         .buttom-box-item-but-lable {
             margin-right: 8px;
             position: relative;
+            cursor: pointer;
         }
         ._nowas {
             margin-right: 0;
@@ -1334,20 +1355,20 @@ export default {
             padding-left: 16px;
             box-sizing: border-box;
             padding-bottom: 16px;
-           
-           &-bor {
-               position: absolute;
-               width: 8px;
-               height: 8px;
-               background: #be8c4b;
-               bottom: -4px;
-               transform: rotate(45deg);
-           }
+
+            &-bor {
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #be8c4b;
+                bottom: -4px;
+                transform: rotate(45deg);
+            }
             .chil_1 {
                 font-size: 14px;
                 font-family: PingFang SC-Medium, PingFang SC;
                 font-weight: 500;
-                color: #FFFFFF;
+                color: #ffffff;
                 line-height: 22px;
                 margin-top: 16px;
             }
@@ -1355,7 +1376,7 @@ export default {
                 font-size: 12px;
                 font-family: PingFang SC-Regular, PingFang SC;
                 font-weight: 400;
-                color: #FFFFFF;
+                color: #ffffff;
                 line-height: 20px;
             }
         }
