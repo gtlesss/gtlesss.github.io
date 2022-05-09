@@ -481,14 +481,14 @@
                     <span>全周期专业服务</span>
                 </div>
             </div>
-            <div class="footer-c">
+            <!-- <div class="footer-c">
                 <div class="footer-cont">
                     <span>关于苍穹云</span>
                     <span>法律声明及隐私政策</span>
                     <span>廉政举报</span>
                     <span>联系我们</span>
                 </div>
-            </div>
+            </div> -->
             <div class="footer-b">
                 浙公网安备 33010602009975号浙B2-20080101-4
             </div>
@@ -1281,6 +1281,7 @@ export default {
             line-height: 18px;
             color: #999999;
             text-align: center;
+            margin-top: 100px;
         }
     }
 }
