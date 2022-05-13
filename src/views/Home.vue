@@ -306,8 +306,8 @@
                                     tablelist[tabletIndex].children.typebut != 1
                                 "
                             >
-                                <span>查看详情</span>
-                                <span>知识库</span>
+                                <a href="javascript:void(0)" @click="jwap(tablelist[tabletIndex].url)">查看详情</a>
+                                <a href="javascript:void(0)" @click="jwap(tablelist[tabletIndex].basurl)">知识库</a>
                             </div>
                         </div>
                     </div>
@@ -368,8 +368,8 @@
                                     v-if="item.buttonType == 1"
                                     class="tableb-buttom"
                                 >
-                                    <span>查看详情</span>
-                                    <span>知识库</span>
+                                    <a href="javascript:void(0)" @click="jwap(item.url)">查看详情</a>
+                                    <a href="javascript:void(0)" @click="jwap(item.basurl)">知识库</a>
                                 </div>
                                 <div
                                     v-if="item.buttonType == 2"
@@ -381,8 +381,8 @@
                                     v-if="item.buttonType == 4"
                                     class="tableb-buttom1 tableb-buttom"
                                 >
-                                    <span>查看详情</span>
-                                    <span>知识库</span>
+                                    <a href="javascript:void(0)" @click="jwap(item.url)">查看详情</a>
+                                    <a href="javascript:void(0)" @click="jwap(item.basurl)">知识库</a>
                                     <!-- <span>下载申请表单</span> -->
                                 </div>
                             </div>
@@ -624,7 +624,11 @@ export default {
         };
     },
     methods: {
-        jwap(i) {},
+        jwap(url) {
+            if(url) {
+                window.open(url);
+            }
+        },
         // 鼠标离开
         mouseleave(type) {
             if (type == 1) {
@@ -668,6 +672,9 @@ export default {
 };
 </script>
 <style lang='less' scoped>
+a {
+    text-decoration: none;
+}
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 1s;
@@ -1216,6 +1223,13 @@ export default {
             position: relative;
             left: -3px;
         }
+        >a {
+            width: 72px;
+            height: 26px;
+            margin-right: 3px;
+            position: relative;
+            left: -3px;
+        }
         :last-child {
             margin-right: 0 !important;
         }
@@ -1226,6 +1240,18 @@ export default {
             background: #bd8c4a;
             margin-right: 4px;
             color: #ffffff;
+            cursor: pointer;
+        }
+        > a {
+            width: 78px;
+            height: 28px;
+            background: rgba(189, 140, 74, 0.1);
+            color: #bd8c4a;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
         }
         > span {
             width: 78px;
