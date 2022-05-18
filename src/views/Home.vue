@@ -76,14 +76,14 @@
                 </div>
             </div>
             <div style="display: flex; justify-content: center; width: 100%">
-                <div
+                <div ref="platformIt"
                     style=" margin: 80px 0 16px 0; font-size: 28px;font-family: PingFang SC-Regular, PingFang SC; font-weight: 400;line-height: 36px; "
                 >苍穹云平台 · 下一代IT基础设施 
                 </div>
             </div>
         </main>
         <!-- 表格切换 -->
-        <div class="layout" ref="platformIt">
+        <div class="layout" >
             <transition name="fade">
                 <div class="platform layout-cil" v-if="show1">
                     <div class="table">
@@ -504,7 +504,7 @@ export default {
         let documentScrollTop = [
             Math.ceil(this.$refs.iaasLs.getBoundingClientRect().top),
             Math.ceil(this.$refs.platformIt.getBoundingClientRect().top),
-            Math.ceil(this.$refs.IAAS.getBoundingClientRect().top+300),
+            Math.ceil(this.$refs.IAAS.getBoundingClientRect().top),
             Math.ceil(this.$refs.fotter.getBoundingClientRect().top)]
         this.ScrollTopArr =documentScrollTop;
     },
