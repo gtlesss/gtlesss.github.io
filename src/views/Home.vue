@@ -502,10 +502,10 @@ export default {
     },
     mounted () {
         let documentScrollTop = [
-            Math.ceil(this.$refs.iaasLs.getBoundingClientRect().top+this.$refs.iaasLs.getBoundingClientRect().height),
-            Math.ceil(this.$refs.platformIt.getBoundingClientRect().top+this.$refs.platformIt.getBoundingClientRect().height),
-            Math.ceil(this.$refs.IAAS.getBoundingClientRect().top+this.$refs.IAAS.getBoundingClientRect().height+300),
-            Math.ceil(this.$refs.fotter.getBoundingClientRect().top+this.$refs.fotter.getBoundingClientRect().height)]
+            Math.ceil(this.$refs.iaasLs.getBoundingClientRect().top),
+            Math.ceil(this.$refs.platformIt.getBoundingClientRect().top),
+            Math.ceil(this.$refs.IAAS.getBoundingClientRect().top+300),
+            Math.ceil(this.$refs.fotter.getBoundingClientRect().top)]
         this.ScrollTopArr =documentScrollTop;
     },
     methods: {
