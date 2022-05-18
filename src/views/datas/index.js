@@ -18,6 +18,12 @@ export const tablelist = [
                     buttonType:1,
                     url:'http://cicccloud.cicc.com.cn/vm-service/',
                     basurl:'',
+                    titList:[
+                        {
+                            tit:'云主机资源池',
+                            url:'https://rbnqidugqp.feishu.cn/wiki/wikcn20fZCAjcGCT9QcWfWRMAYd'
+                        }
+                    ]
                 },
                 {
                     img:require("../../../public/img/tables/1/2.png"),
@@ -48,8 +54,14 @@ export const tablelist = [
                     lable:'通用软件',
                     value:'或称中间件，介于应用系统和系统软件。使用系统软件的基础服务，衔接网络应用系统的不同应用，完成资源共享、功能共享。 ',
                     buttonType:1,
-                    url:'',
+                    url:'http://cicccloud.cicc.com.cn/vm-service/',
                     basurl:'',
+                    titList:[
+                        {
+                            tit:'中间件交付',
+                            url:'https://rbnqidugqp.feishu.cn/wiki/wikcn2Rw7DaXAG9zXN8UfmlCXbf'
+                        }
+                    ]
                 }
             ]
         }
@@ -76,9 +88,9 @@ export const tablelist = [
                     img:require("../../../public/img/tables/2/2.png"),
                     lable:'对象存储',
                     value:'适用面向海量文件（数据文件量在一百万以上），互联网等应用的非结构化文件数据存储，对数据安全、合规、扩展性较高要求的场景。',
-                    buttonType:2,
-                    url:'',
-                    basurl:'',
+                    buttonType:1,
+                    url:'http://cicccloud.cicc.com.cn/ticket-center/',
+                    basurl:'https://note.youdao.com/s/JRKnHHpH',
                 },
                 {
                     img:require("../../../public/img/tables/2/3.png"),
@@ -92,8 +104,8 @@ export const tablelist = [
                     img:require("../../../public/img/tables/2/4.png"),
                     lable:'NAS存储',
                     value:'适用面向邮件、文档管理类非结构化/半结构化文件应用数据存储，对性能要求较高，数据规模相对较小（数据文件量在一百万以内',
-                    buttonType:2,
-                    url:'',
+                    buttonType:1,
+                    url:'http://cicccloud.cicc.com.cn/ticket-center/',
                     basurl:'',
                 }
             ]
@@ -104,6 +116,16 @@ export const tablelist = [
         img: require("../../../public/img/table/3.png"),
         url:'',
         basurl:'',
+        titList:[
+            {
+                tit:'网络知识图谱(架构版)',
+                url:'https://rbnqidugqp.feishu.cn/docs/doccnoqeWPXOMhzzFfiBHOCKTfh'
+            },
+            {
+                tit:'私有云NSX知识库',
+                url:'https://rbnqidugqp.feishu.cn/docs/doccnm7bIxKJvvmwVGTQi5iq8wf'
+            }
+        ],
         children:{
             tit:'基于网络各基础资源软件平台进行顶层抽象，完成对各平台的统一认证登录，通过对接各底层平台促进整网的自动化能力提升，结合流转审批流程完成网络自服务场景的建设。平台支持全局监控告警、日志审计、变更审计、自动化配置下发、认证授权管理等特性，是公司网络自服务的统一平台。 ',
             code:['负载均衡服务','域名解析服务','访问关系服务','网络接入服务 '],
@@ -142,7 +164,13 @@ export const tablelist = [
         name: "容器服务",
         img: require("../../../public/img/table/4.png"),
         url:'http://cicccloud.cicc.com.cn/container-service/',
-        basurl:'',
+        basurl:'http://cicccloud.cicc.com.cn/container-service/',
+        titList:[
+            {
+                tit:'容器平台',
+                url:'https://rbnqidugqp.feishu.cn/wiki/wikcnxgsoKJWEY5ge8KJddSajAh'
+            }
+        ],
         children:{
             tit:'基于 K8S （中金自有）的容器基础设施平台',
             code:['容器项目申请','项目配额扩容','项目资源回收','NFS持久化卷','成员与角色管理','监控服务','告警通知','日志查询','服务暴露 '],
@@ -172,7 +200,7 @@ export const tablelist = [
     {
         name: "数据库",
         img: require("../../../public/img/table/5.png"),
-        url:'',
+        url:'http://10.110.81.120/',
         basurl:'',
         children:{
             tit:'在算力资源之上交付数据库资源，支持oracle、mysql等数据库类型，并提供后续相关技术支持 ',
@@ -206,7 +234,7 @@ export const tablelist = [
     {
         name: "备份",
         img: require("../../../public/img/table/6.png"),
-        url:'',
+        url:'https://192.168.150.57/opscenter',
         basurl:'',
         children:{
             tit:'目前公司的备份系统以 Veritas Netbackup 备份软件（简称NBU）为核心，配备Veritas备份一体机或DELL x86服务器作为NBU备份服务器，外连物理磁带库设备，来实现系统数据在线+离线的统一备份。',
@@ -315,6 +343,20 @@ export const tablelist = [
                     buttonType:4,
                     url:'',
                     basurl:'',
+                    titList:[
+                        {
+                            tit:'主机安全防护能力',
+                            url:'https://rbnqidugqp.feishu.cn/docs/doccnDISTAEEwq2phsKBRcn9qfc'
+                        },
+                        {
+                            tit:'应用系统防火墙(WAF)监控',
+                            url:'https://rbnqidugqp.feishu.cn/docs/doccnM0CTJwXO4QufRQPpg9AmUd'
+                        },
+                        {
+                            tit:'系统漏洞修复',
+                            url:'https://rbnqidugqp.feishu.cn/docs/doccnwDO3YH3PB9u3XpsdXRvZOc'
+                        }
+                    ]
                 }
             ]
         }
@@ -373,13 +415,31 @@ export const ITlist = [
     },
 ];
 
-export  const headerList = [
-    "主页",
-    "服务目录",
-    "解决方案",
-    "选型指引",
-    "费用评估",
-    "联系方式",
+export const headerList = [
+    {
+        tit:"主页",
+        url:''
+    },
+    {
+        tit:"服务目录",
+        url:''
+    },
+    {
+        tit:"解决方案",
+        url:''
+    },
+    {
+        tit:"选型指引",
+        url:''
+    },
+    {
+        tit: "费用评估",
+        url:''
+    },
+    {
+        tit :"联系方式",
+        url:''
+    }
 ];
 export const yunlsit = [
     {   

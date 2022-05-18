@@ -3,18 +3,16 @@
         <!-- 顶部导航 -->
         <div class="home-box">
             <header>
-                <img
-                    src="../../public/img/Frame.png"
-                    alt=""
-                    class="home-box-img"
-                />
-                <div class="header-right">
+                <img src="../../public/img/Frame.png" alt="" class="home-box-img"/>
+                <div class="header-right" v-if="ScrollTopArr.length>0">
                     <span
+                        @click="onClickHeader(index)"
                         :class="headerIndex == index ? 'headerActive' : ''"
+                        :id="index == 4&&'headerActives'"
                         v-for="(item, index) in headerList"
                         :key="index"
-                        >{{ item }}</span
-                    >
+                        >{{ item.tit }}
+                    </span>
                 </div>
             </header>
         </div>
@@ -23,27 +21,15 @@
             <Swioer />
         </div>
         <!-- 支撑业务快速发展的IT 基础设施 -->
-        <main class="home-box">
+        <main class="home-box" ref="iaasLs">
             <div class="it">
-                <div
-                    class="it-box"
-                    @mouseleave="mouseleave(1)"
-                    @mouseenter="mouseenter(1)"
-                >
+                <div class="it-box" @mouseleave="mouseleave(1)" @mouseenter="mouseenter(1)">
                     <div v-if="mouseenter1">
                         <div class="it-box-top">
-                            <img
-                                src="../../public/img/1.png"
-                                alt=""
-                                class="it-box-img"
-                            />
+                            <img src="../../public/img/1.png" alt="" class="it-box-img"/>
                             <div>
-                                <div class="it-box-lable">
-                                    支撑业务快速发展的IT 基础设施
-                                </div>
-                                <div class="it-box-text">
-                                    多云融合 / 运营高效 / 开放共享
-                                </div>
+                                <div class="it-box-lable">支撑业务快速发展的IT 基础设施</div>
+                                <div class="it-box-text">多云融合 / 运营高效 / 开放共享</div>
                             </div>
                         </div>
                         <div class="it-buttom" @click="jwap(1)">了解详情</div>
@@ -63,25 +49,13 @@
                         </ul>
                     </div>
                 </div>
-                <div
-                    class="it-box"
-                    style="margin-left: 16px"
-                    @mouseleave="mouseleave(2)"
-                    @mouseenter="mouseenter(2)"
-                >
+                <div class="it-box" style="margin-left: 16px" @mouseleave="mouseleave(2)" @mouseenter="mouseenter(2)">
                     <div v-if="mouseenter2">
                         <div class="it-box-top">
-                            <img
-                                src="../../public/img/2.png"
-                                alt=""
-                                class="it-box-img"
-                            />
+                            <img src="../../public/img/2.png" alt="" class="it-box-img"/>
                             <div>
                                 <div class="it-box-lable">丰富的 IAAS 资源</div>
-                                <div class="it-box-text">
-                                    私有云 / 容器资源池 / 公有云 / 云管平台 /
-                                    运维服务
-                                </div>
+                                <div class="it-box-text">私有云 / 容器资源池 / 公有云 / 云管平台 /运维服务</div>  
                             </div>
                         </div>
                         <div class="it-buttom" @click="jwap(2)">了解详情</div>
@@ -103,87 +77,55 @@
             </div>
             <div style="display: flex; justify-content: center; width: 100%">
                 <div
-                    style="
-                        margin: 80px 0 16px 0;
-                        font-size: 28px;
-                        font-family: PingFang SC-Regular, PingFang SC;
-                        font-weight: 400;
-                        line-height: 36px;
-                    "
-                >
-                    苍穹云平台 · 下一代IT基础设施
+                    style=" margin: 80px 0 16px 0; font-size: 28px;font-family: PingFang SC-Regular, PingFang SC; font-weight: 400;line-height: 36px; "
+                >苍穹云平台 · 下一代IT基础设施 
                 </div>
             </div>
         </main>
         <!-- 表格切换 -->
-        <div class="layout">
+        <div class="layout" ref="platformIt">
             <transition name="fade">
                 <div class="platform layout-cil" v-if="show1">
                     <div class="table">
-                        <div
-                            v-if="platformIndex == 1"
-                            style="display: flex"
-                            key="fade1"
-                        >
+                        <div v-if="platformIndex == 1" style="display: flex"  key="fade1" >
                             <div class="table-left">
-                                <div
-                                    class="table-left-bck1"
-                                    @click="clickEvent(2)"
-                                >
-                                    场景
-                                </div>
-                                <div
-                                    class="table-left-bck2"
-                                    @click="clickEvent(1)"
-                                >
-                                    苍穹云
-                                </div>
+                                <div class="table-left-bck1" @click="clickEvent(2)">场景</div>
+                                <div class="table-left-bck2" @click="clickEvent(1)">苍穹云</div>   
                             </div>
                             <div class="table-cont">
                                 <div class="table-cont-lable countents">
                                     <span>云管理平台</span>
                                 </div>
                                 <div class="table-cont-lable">
-                                    <span>云门户</span
-                                    ><span class="bor">计量计费</span
-                                    ><span class="bor">服务编排</span>
+                                    <span>云门户</span>
+                                    <span class="bor">计量计费</span>
+                                    <span class="bor">服务编排</span>
                                 </div>
                                 <div class="table-cont-lable">
-                                    <span>服务目录</span
-                                    ><span class="bor">容量管理</span
-                                    ><span class="bor">自动化管理</span>
+                                    <span>服务目录</span>
+                                    <span class="bor">容量管理</span>>
+                                    <span class="bor">自动化管理</span>
                                 </div>
                                 <div class="table-cont-lable countents">
-                                    <span>私有云资源池</span
-                                    ><span class="bor">容器资源池</span
-                                    ><span class="bor">公有云</span>
+                                    <span>私有云资源池</span>
+                                    <span class="bor">容器资源池</span>
+                                    <span class="bor">公有云</span>
                                 </div>
                                 <div class="table-cont-lable1">
-                                    <span>生产</span
-                                    ><span class="bor">研发</span
-                                    ><span class="bor">生产</span
-                                    ><span class="bor">研发</span>
+                                    <span>生产</span>
+                                    <span class="bor">研发</span>
+                                    <span class="bor">生产</span>
+                                    <span class="bor">研发</span>
                                     <span class="bor spanms_">华为云</span>
                                 </div>
                                 <div class="table-cont-lable2">
-                                    <span>IDC</span
-                                    ><span class="bor">阿里云</span>
+                                    <span>IDC</span>
+                                    <span class="bor">阿里云</span>
                                 </div>
                                 <div class="table-cont-lable">
-                                    <span style="border-bottom: none"
-                                        >北京中嘉IDC</span
-                                    ><span
-                                        style="
-                                            background: #f8f8f8;
-                                            border-bottom: none;
-                                        "
-                                        class="bor"
-                                        >北京望京IDC（建设中）</span
-                                    ><span
-                                        style="border-bottom: none"
-                                        class="bor"
-                                        >腾讯云</span
-                                    >
+                                    <span style="border-bottom: none">北京中嘉IDC</span> 
+                                    <span style="background: #f8f8f8; border-bottom: none;" class="bor" >北京望京IDC（建设中）</span>  
+                                   <span style="border-bottom: none" class="bor"  >腾讯云</span>  
                                 </div>
                             </div>
                             <div class="table-right">
@@ -192,29 +134,17 @@
                                         <span>运维保障</span>
                                     </div>
                                     <div class="tright-conent">
-                                        <span>CMDB</span><span>监控</span
-                                        ><span>堡垒机</span
-                                        ><span style="border-bottom: none"
-                                            >日志</span
-                                        >
+                                        <span>CMDB</span><span>监控</span>
+                                        <span>堡垒机</span>
+                                        <span style="border-bottom: none">日志</span>  
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div v-else style="display: flex" key="fade2">
                             <div class="table-left">
-                                <div
-                                    class="table-left-bck3"
-                                    @click="clickEvent(2)"
-                                >
-                                    场景
-                                </div>
-                                <div
-                                    class="table-left-bck4"
-                                    @click="clickEvent(1)"
-                                >
-                                    苍穹云
-                                </div>
+                                <div class="table-left-bck3" @click="clickEvent(2)">场景</div>
+                                <div class="table-left-bck4" @click="clickEvent(1)">苍穹云</div>   
                             </div>
                             <div class="it-boxs1">
                                 <div class="it-boxs">
@@ -223,19 +153,11 @@
                                         :key="index"
                                         :class="index <= 3 ? 'borno' : ''"
                                     >
-                                        <img
-                                            :src="item.img"
-                                            alt=""
-                                            class="it-box-img"
-                                        />
+                                        <img :src="item.img" alt="" class="it-box-img" />
                                         <div class="it-box-text">
-                                            <span class="it-box-text-tit">{{
-                                                item.tit
-                                            }}</span>
+                                            <span class="it-box-text-tit">{{ item.tit}}</span>
                                             <span
-                                                v-for="(
-                                                    item_, index_
-                                                ) in item.children"
+                                                v-for="(item_, index_) in item.children"
                                                 :key="index_"
                                                 class="it-box-text-content"
                                             >
@@ -251,17 +173,7 @@
             </transition>
         </div>
         <!-- 丰富的 IAAS 资源 -->
-        <div
-            style="
-                margin: 80px auto 19px auto;
-                color: #000000;
-                font-size: 28px;
-                font-weight: 400;
-                line-height: 33px;
-            "
-        >
-            丰富的 IAAS 资源
-        </div>
+        <div ref="IAAS" style="margin: 80px auto 19px auto;color: #000000;font-size: 28px;font-weight: 400;line-height: 33px;" >丰富的 IAAS 资源</div>
         <!-- 丰富的 IAAS 资源 table 切换 -->
         <div class="tablelist">
             <div
@@ -281,40 +193,45 @@
             <transition name="fade">
                 <div v-if="show">
                     <div>
-                        <div
-                            class="tableb-box-tit"
-                            v-if="tablelist[tabletIndex].children.tit"
-                        >
+                        <div class="tableb-box-tit" v-if="tablelist[tabletIndex].children.tit" >
                             {{ tablelist[tabletIndex].children.tit }}
                         </div>
-                        <div
-                            class="tableb-box-btnm"
-                            v-if="tablelist[tabletIndex].children.tit"
-                        >
+                        <div class="tableb-box-btnm" v-if="tablelist[tabletIndex].children.tit">
                             <div class="tableb-box-code">
                                 <span
-                                    v-for="(item_, index_) in tablelist[
-                                        tabletIndex
-                                    ].children.code"
+                                    v-for="(item_, index_) in tablelist[tabletIndex].children.code"
                                     :key="index_"
                                     >{{ item_ }}</span
                                 >
                             </div>
-                            <div
-                                class="tableb-buttom"
-                                v-if="
-                                    tablelist[tabletIndex].children.typebut != 1
-                                "
-                            >
-                                <a href="javascript:void(0)" @click="jwap(tablelist[tabletIndex].url)">查看详情</a>
-                                <a href="javascript:void(0)" @click="jwap(tablelist[tabletIndex].basurl)">知识库</a>
+                            <div class="tableb-buttom" v-if="tablelist[tabletIndex].children.typebut != 1" >
+                                <div :class="!(tablelist[tabletIndex].titList||tablelist[tabletIndex].url)&&'tableb-buttom-actives'"  @mouseleave="detailTopsLeave" @mouseenter="detailsTopEnter" >查看详情
+                                    <div @mouseleave="deitals = false" @mouseenter="deitals = true" v-if="detailsTopIndex ==tabletIndex&& detailsTopVytsd && (tablelist[tabletIndex].titList||tablelist[tabletIndex].url)" class="buttom-box-item1 buttom-box-item2"
+                                            style="position: absolute;z-index: 9;bottom: 40px;left: 17px;"   
+                                        >
+                                            <div class="itme-url" v-if="tablelist[tabletIndex].url" @click="jwap(tablelist[tabletIndex].url)">
+                                                <span>{{tablelist[tabletIndex].url}}</span>
+                                                <div class="triangle"></div>
+                                            </div>
+                                            <div
+                                                v-for="(_item, _index) in tablelist[tabletIndex].titList"
+                                                :key="_index"
+                                            >
+                                                <div class="chil_1" @click="jwap(_item.url)">
+                                                    <span>{{_item.tit}}</span>
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="buttom-box-item1-bor"></div>
+                                    </div>
+                                </div>
+                                <div @click="jwap(tablelist[tabletIndex].basurl)">知识库</div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <div v-if="tablelist[tabletIndex].children.type == 2" class="advantage" >平台优势</div>
-                        <div
-                            class="advantage-box"
+                        <div class="advantage-box"
                             :class="
                                 (tablelist[tabletIndex].children.type == 6 &&
                                     'advantage-box6') ||
@@ -324,10 +241,9 @@
                                     'advantage-box2')
                             "
                         >
-                            
                             <div
-                                v-for="(item, index) in tablelist[tabletIndex]
-                                    .children.list"
+                                @mouseleave="detailsLeave"
+                                v-for="(item, index) in tablelist[tabletIndex].children.list" 
                                 :key="index"
                                 class="advantage-box-item"
                                 :class="
@@ -337,26 +253,10 @@
                                         : ''
                                 "
                             >
-                                <img
-                                    :src="item.img"
-                                    alt=""
-                                    class="advantage-box-item-img"
-                                />
-                                <div class="advantage-box-item-lable">
-                                    {{ item.lable }}
-                                </div>
-                                <div class="advantage-box-item-value">
-                                    {{ item.value }}
-                                </div>
-                                <div
-                                    v-if="item.test"
-                                    class="advantage-box-item-test"
-                                    :class="
-                                        item.testl == 6
-                                            ? 'advantage-box-item-test-marg'
-                                            : ''
-                                    "
-                                >
+                                <img :src="item.img" alt="" class="advantage-box-item-img"/>
+                                <div class="advantage-box-item-lable">{{ item.lable }}</div>
+                                <div class="advantage-box-item-value">{{ item.value }}</div>
+                                <div v-if="item.test" class="advantage-box-item-test" :class="item.testl == 6? 'advantage-box-item-test-marg': '' ">
                                     <span
                                         v-for="(item_s, index_s) in item.test"
                                         :key="index_s"
@@ -364,25 +264,55 @@
                                         {{ item_s }}
                                     </span>
                                 </div>
-                                <div
-                                    v-if="item.buttonType == 1"
-                                    class="tableb-buttom"
-                                >
-                                    <a href="javascript:void(0)" @click="jwap(item.url)">查看详情</a>
-                                    <a href="javascript:void(0)" @click="jwap(item.basurl)">知识库</a>
+                                <div v-if="item.buttonType == 1" class="tableb-buttom">
+                                    <div :class="!(item.titList||item.url)&&'tableb-buttom-actives'" @mouseenter="detailsEnter(index)" >
+                                        查看详情
+                                        <div @mouseleave="detailsLeave" v-if="detailsButtoms &&index == detailsIndex && (item.titList||item.url)" class="buttom-box-item1 buttom-box-item2"
+                                            style="position: absolute;z-index: 9;bottom: 40px;left: 17px;"   
+                                        >
+                                            <div class="itme-url" v-if="item.url" @click="jwap(item.url)">
+                                                <span>{{item.url}}</span>
+                                                <div class="triangle"></div>
+                                            </div>
+                                            <div
+                                                v-for="(_item, _index) in item.titList"
+                                                :key="_index"
+                                            >
+                                                <div class="chil_1" @click="jwap(_item.url)">
+                                                    <span>{{ _item.tit }}</span>
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="buttom-box-item1-bor"></div>
+                                        </div>
+                                    </div>
+                                    <div  @click="jwap(item.basurl)">知识库</div>
                                 </div>
-                                <div
-                                    v-if="item.buttonType == 2"
-                                    class="tableb-buttom"
-                                >
+                                <div v-if="item.buttonType == 2" class="tableb-buttom">
                                     <span>申请流程</span>
                                 </div>
-                                <div
-                                    v-if="item.buttonType == 4"
-                                    class="tableb-buttom1 tableb-buttom"
-                                >
-                                    <a href="javascript:void(0)" @click="jwap(item.url)">查看详情</a>
-                                    <a href="javascript:void(0)" @click="jwap(item.basurl)">知识库</a>
+                                <div v-if="item.buttonType == 4" class="tableb-buttom1 tableb-buttom">
+                                    <div :class="!(item.titList||item.url)&&'tableb-buttom-actives'" @mouseenter="detailsEnter(index)">查看详情
+                                        <div @mouseleave="detailsLeave" v-if="detailsButtoms &&index == detailsIndex && (item.titList||item.url)" class="buttom-box-item1 buttom-box-item2"
+                                            style="position: absolute;z-index: 9;bottom: 40px;left: 17px;"   
+                                        >
+                                            <div class="itme-url" v-if="item.url" @click="jwap(item.url)">
+                                                <span>{{item.url}}</span>
+                                                <div class="triangle"></div>
+                                            </div>
+                                            <div
+                                                v-for="(_item, _index) in item.titList"
+                                                :key="_index"
+                                            >
+                                                <div class="chil_1" @click="jwap(_item.url)">
+                                                    <span>{{ _item.tit }}</span>
+                                                    <div class="triangle"></div>
+                                                </div>
+                                            </div>
+                                            <div class="buttom-box-item1-bor"></div>
+                                        </div>
+                                    </div>
+                                    <div @click="jwap(item.basurl)">知识库</div>
                                     <!-- <span>下载申请表单</span> -->
                                 </div>
                             </div>
@@ -443,27 +373,13 @@
         <div class="count-but">全方位的无忧专属上云服务</div>
         <div class="buttom-box">
             <div class="buttom-box-item23" @mouseleave="mouseleaveButtom()">
-                <!-- @mouseleave="mouseleaveButtom()" @mouseenter="mouseenterButtom()" -->
-                <div
-                    class="buttom-box-item bd1"
-                    style="
-                        border-right: 1px solid #dfdfdf;
-                        width: 100%;
-                        height: 100%;
-                    "
-                >
+                <div class="buttom-box-item bd1" style=" border-right: 1px solid #dfdfdf; width: 100%; height: 100%; ">
                     <div class="buttom-box-item-top">
                         <div class="buttom-box-item-top-left">
-                            <span style="font-weight: 700; font-size: 14px"
-                                >联系我们</span
-                            >
+                            <span style="font-weight: 700; font-size: 14px" >联系我们</span>
                             <span>如果你有需求，别犹豫现在拨打电话</span>
                         </div>
-                        <img
-                            src="../../public/img/fot/8.png"
-                            alt=""
-                            class="buttom-box-item-top-right"
-                        />
+                        <img src="../../public/img/fot/8.png" alt="" class="buttom-box-item-top-right"/> 
                     </div>
                     <div class="buttom-box-item-but">
                         <span
@@ -474,23 +390,11 @@
                             :key="index"
                         >
                             {{ item.lable }}
-                            <div
-                                v-if="
-                                    !isMouseleaveButtom &&
-                                    index == mouseenterButtomIndex
-                                "
-                                class="buttom-box-item1"
-                                style="
-                                    position: absolute;
-                                    z-index: 9;
-                                    bottom: 20px;
-                                    left: -5px;
-                                "
+                            <div v-if="!isMouseleaveButtom &&index == mouseenterButtomIndex" class="buttom-box-item1"
+                                style="position: absolute;z-index: 9;bottom: 20px;left: -5px;"   
                             >
                                 <div
-                                    v-for="(_item, _index) in yunlsit[
-                                        mouseenterButtomIndex
-                                    ].children"
+                                    v-for="(_item, _index) in yunlsit[mouseenterButtomIndex].children"
                                     :key="_index"
                                 >
                                     <div class="chil_1">{{ _item.name }}</div>
@@ -507,18 +411,10 @@
             <div class="buttom-box-item bd1">
                 <div class="buttom-box-item-top">
                     <div class="buttom-box-item-top-left">
-                        <span style="font-weight: 700; font-size: 14px"
-                            >专家服务</span
-                        >
-                        <span
-                            >上万名技术专家为企业量身打造适合业务发展的专业服务</span
-                        >
+                        <span style="font-weight: 700; font-size: 14px">专家服务</span>
+                        <span>上万名技术专家为企业量身打造适合业务发展的专业服务</span> 
                     </div>
-                    <img
-                        src="../../public/img/fot/5.png"
-                        alt=""
-                        class="buttom-box-item-top-right"
-                    />
+                    <img src="../../public/img/fot/5.png" alt="" class="buttom-box-item-top-right"/>  
                 </div>
                 <div class="buttom-box-item-but">
                     鲁飞&nbsp;&nbsp;Fei.Lu@cicc.com.cn
@@ -529,40 +425,26 @@
             <div class="buttom-box-item">
                 <div class="buttom-box-item-top">
                     <div class="buttom-box-item-top-left">
-                        <span style="font-weight: 700; font-size: 14px"
-                            >文档与工具</span
-                        >
+                        <span style="font-weight: 700; font-size: 14px">文档与工具</span>
                         <span>为您提供全面的产品文档，新手教程及工具</span>
                     </div>
-                    <img
-                        src="../../public/img/fot/6.png"
-                        alt=""
-                        class="buttom-box-item-top-right"
-                    />
+                    <img src="../../public/img/fot/6.png" alt=""  class="buttom-box-item-top-right"/>
                 </div>
                 <div class="buttom-box-item-but">帮助文档</div>
             </div>
             <div class="buttom-box-item bd2">
                 <div class="buttom-box-item-top">
                     <div class="buttom-box-item-top-left">
-                        <span style="font-weight: 700; font-size: 14px"
-                            >建议反馈</span
-                        >
-                        <span
-                            >在此反馈您对苍穹云的任何建议，苍穹云未来会更好</span
-                        >
+                        <span style="font-weight: 700; font-size: 14px">建议反馈</span>
+                        <span>在此反馈您对苍穹云的任何建议，苍穹云未来会更好</span>
                     </div>
-                    <img
-                        src="../../public/img/fot/7.png"
-                        alt=""
-                        class="buttom-box-item-top-right"
-                    />
+                    <img src="../../public/img/fot/7.png" alt="" class="buttom-box-item-top-right"/>   
                 </div>
                 <div class="buttom-box-item-but">聆听体验反馈</div>
             </div>
         </div>
         <!-- footer -->
-        <footer class="footer">
+        <footer class="footer" ref="fotter">
             <div class="footer-top">
                 <div>
                     <img src="../../public/img/fot/1.png" alt="" />
@@ -580,17 +462,6 @@
                     <img src="../../public/img/fot/4.png" alt="" />
                     <span>全周期专业服务</span>
                 </div>
-            </div>
-            <!-- <div class="footer-c">
-                <div class="footer-cont">
-                    <span>关于苍穹云</span>
-                    <span>法律声明及隐私政策</span>
-                    <span>廉政举报</span>
-                    <span>联系我们</span>
-                </div>
-            </div> -->
-            <div class="footer-b">
-                浙公网安备 33010602009975号浙B2-20080101-4
             </div>
         </footer>
     </div>
@@ -621,13 +492,61 @@ export default {
             isMouseleaveButtom: true,
             mouseenterButtomIndex: null,
             offsetWidths: 0,
+            ScrollTopArr: [],
+            detailsTopVytsd:false,
+            deitals:false,
+            detailsTopIndex:0,
+            detailsIndex:0,
+            detailsButtoms:false
         };
     },
+    mounted () {
+        let documentScrollTop = [
+            Math.ceil(this.$refs.iaasLs.getBoundingClientRect().top+this.$refs.iaasLs.getBoundingClientRect().height),
+            Math.ceil(this.$refs.platformIt.getBoundingClientRect().top+this.$refs.platformIt.getBoundingClientRect().height),
+            Math.ceil(this.$refs.IAAS.getBoundingClientRect().top+this.$refs.IAAS.getBoundingClientRect().height+300),
+            Math.ceil(this.$refs.fotter.getBoundingClientRect().top+this.$refs.fotter.getBoundingClientRect().height)]
+        this.ScrollTopArr =documentScrollTop;
+    },
     methods: {
+        onClickHeader(i){
+            if(i!=4) this.headerIndex = i;
+            if(i == 0) {
+                location.reload([false])
+            }else if(i == 1) {
+                window.scrollTo({ top: this.ScrollTopArr[0], left: 0, behavior: 'smooth' })
+            }else if(i == 2) {
+                window.scrollTo({ top: this.ScrollTopArr[1], left: 0, behavior: 'smooth' })
+            }else if(i == 3) {
+                window.scrollTo({ top: this.ScrollTopArr[2], left: 0, behavior: 'smooth' })
+            }else if(i == 5) {
+                window.scrollTo({ top: this.ScrollTopArr[3], left: 0, behavior: 'smooth' })
+            }
+        },
         jwap(url) {
+            console.log(url);
             if(url) {
                 window.open(url);
             }
+        },
+        detailTopsLeave(){
+            setTimeout(()=>{
+                if(!this.deitals) {
+                    this.detailsTopVytsd = false
+                }
+            },200)
+        },
+        detailsTopEnter(){
+            this.detailsTopIndex = this.tabletIndex;
+            this.detailsTopVytsd = true
+        },
+        detailsLeave(){
+            this.detailsButtoms = false
+        },
+        detailsEnter(index){
+            this.detailsIndex = index;
+            this.detailsButtoms = true
+            console.log(2);
         },
         // 鼠标离开
         mouseleave(type) {
@@ -709,16 +628,20 @@ a {
             .header-right {
                 font-size: 14px;
                 font-weight: 400;
-
-                :hover {
-                    color: #be8c4b;
-                    cursor: pointer;
-                }
+                // :hover {
+                //     color: #be8c4b;
+                //     cursor: pointer;
+                // }
                 > span {
+                    cursor: pointer;
                     margin-left: 32px;
                     font-size: 14px;
+                   
                     &.headerActive {
                         color: #be8c4b;
+                    }
+                    &#headerActives {
+                        color:#B3B3B3;
                     }
                 }
             }
@@ -1238,11 +1161,11 @@ a {
         display: flex;
         :nth-child(1) {
             background: #bd8c4a;
-            margin-right: 4px;
+           
             color: #ffffff;
             cursor: pointer;
         }
-        > a {
+        > div {
             width: 78px;
             height: 28px;
             background: rgba(189, 140, 74, 0.1);
@@ -1252,6 +1175,8 @@ a {
             justify-content: center;
             align-items: center;
             box-sizing: border-box;
+            position: relative;
+            cursor: pointer;
         }
         > span {
             width: 78px;
@@ -1265,6 +1190,9 @@ a {
             box-sizing: border-box;
         }
     }
+    .tableb-buttom-actives {
+            opacity: 0.7;
+        }
     .cang-qiaong {
         margin: 80px auto 0 auto;
         font-family: PingFang SC-Regular, PingFang SC;
@@ -1336,6 +1264,74 @@ a {
         font-size: 28px;
         font-family: PingFang SC-Regular, PingFang SC;
     }
+    .triangle {
+      position: relative;
+    }
+    .triangle:before{
+      content:  '';
+      position: absolute;
+      height: 5px;
+      width:5px;
+      border-width: 0 2px 2px 0;
+      border-style: solid;
+      color: #ffffff;
+      /* 根据这个来控制箭头方向 */
+      transform: rotate(-45deg);
+      right: 5px;
+    }
+    .buttom-box-item1 {
+        background: #be8c4b;
+        color: #ffffff;
+        border-radius: 4px;
+        width: 257px;
+        animation: identifierbuttom 0.2s linear;
+        padding-left: 16px;
+        padding-right: 16px;
+        box-sizing: border-box;
+        padding-bottom: 16px;
+        .itme-url {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+              margin-top: 16px;
+            >span {
+                font-size: 14px;
+                overflow:hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                -o-text-overflow:ellipsis;
+                width: 85%;
+            }
+        }
+        &-bor {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #be8c4b;
+            bottom: -4px;
+            transform: rotate(45deg);
+        }
+        .chil_1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            >span {
+                font-size: 14px;
+                font-family: PingFang SC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #ffffff;
+                line-height: 22px;
+            }
+        }
+        .chil_2 {
+            font-size: 12px;
+            font-family: PingFang SC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 20px;
+        }
+    }
     .buttom-box {
         display: flex;
         flex-wrap: wrap;
@@ -1372,40 +1368,7 @@ a {
         ._nowas {
             margin-right: 0;
         }
-        .buttom-box-item1 {
-            background: #be8c4b;
-            color: #ffffff;
-            border-radius: 4px;
-            width: 257px;
-            animation: identifierbuttom 0.2s linear;
-            padding-left: 16px;
-            box-sizing: border-box;
-            padding-bottom: 16px;
-
-            &-bor {
-                position: absolute;
-                width: 8px;
-                height: 8px;
-                background: #be8c4b;
-                bottom: -4px;
-                transform: rotate(45deg);
-            }
-            .chil_1 {
-                font-size: 14px;
-                font-family: PingFang SC-Medium, PingFang SC;
-                font-weight: 500;
-                color: #ffffff;
-                line-height: 22px;
-                margin-top: 16px;
-            }
-            .chil_2 {
-                font-size: 12px;
-                font-family: PingFang SC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #ffffff;
-                line-height: 20px;
-            }
-        }
+        
         .buttom-box-item {
             display: flex;
             flex-direction: column;
