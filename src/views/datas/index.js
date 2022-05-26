@@ -16,7 +16,7 @@ export const tablelist = [
                     lable:'云主机',
                     value:'云主机在线扩缩云计算服务，整合计算、存储与网络资源，实现分钟级交付。',
                     buttonType:1,
-                    url:'http://cicccloud.cicc.com.cn/vm-service/',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/server/list',
                     basurl:'',
                     titList:[
                         {
@@ -30,7 +30,7 @@ export const tablelist = [
                     lable:'裸金属',
                     value:'云上物理服务器，结合云主机，助力业务在核心数据库、大数据、高性能计算等场景关键业务云上创新 ',
                     buttonType:1,
-                    url:'http://cicccloud.cicc.com.cn/physical-machine/',
+                    url:'http://cicccloud.cicc.com.cn/?_module=physical-machine&url=/environment/product',
                     basurl:'',
                 },
                 {
@@ -38,7 +38,7 @@ export const tablelist = [
                     lable:'GPU服务器',
                     value:'提供 GPU 算力的物理机，超强算力，服务于深度学习、科学计算、图形可视化、视频处理多种应用场景。',
                     buttonType:1,
-                    url:'http://cicccloud.cicc.com.cn/vm-service/',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/server/list',
                     basurl:'',
                 },
                 {
@@ -46,7 +46,7 @@ export const tablelist = [
                     lable:'操作系统',
                     value:'提供云主机的操作系统，支持常用 Linux 发行版和 Windows Server 版本，提供 yum 源、NTP server，提供操作系统相关问题技术支持 ',
                     buttonType:1,
-                    url:'',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/catalog-product/list',
                     basurl:'',
                 },
                 {
@@ -54,7 +54,7 @@ export const tablelist = [
                     lable:'通用软件',
                     value:'或称中间件，介于应用系统和系统软件。使用系统软件的基础服务，衔接网络应用系统的不同应用，完成资源共享、功能共享。 ',
                     buttonType:1,
-                    url:'http://cicccloud.cicc.com.cn/vm-service/',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/catalog-product/list',
                     basurl:'',
                     titList:[
                         {
@@ -67,7 +67,7 @@ export const tablelist = [
         }
     },
     {
-        name: "储存",
+        name: "存储",
         img: require("../../../public/img/table/2.png"),
         url:'',
         basurl:'',
@@ -89,15 +89,15 @@ export const tablelist = [
                     lable:'对象存储',
                     value:'适用面向海量文件（数据文件量在一百万以上），互联网等应用的非结构化文件数据存储，对数据安全、合规、扩展性较高要求的场景。',
                     buttonType:1,
-                    url:'http://cicccloud.cicc.com.cn/ticket-center/',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=ticket-center&url=/ticket/apply',
                     basurl:'https://note.youdao.com/s/JRKnHHpH',
                 },
                 {
                     img:require("../../../public/img/tables/2/3.png"),
-                    lable:'云主机',
-                    value:'提供低时延、持久性、高可靠的块级存储；适用面向数据库，虚拟化类关键交易类应用结构化数据存储，对性能及可靠性要求高的场景',
-                    buttonType:2,
-                    url:'',
+                    lable:'分布式存储',
+                    value:'适用面向大数据分析，数仓等大规模数据平台应用，对扩展性要求高的场景',
+                    buttonType:1,
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=ticket-center&url=/ticket/apply',
                     basurl:'',
                 },
                 {
@@ -105,7 +105,7 @@ export const tablelist = [
                     lable:'NAS存储',
                     value:'适用面向邮件、文档管理类非结构化/半结构化文件应用数据存储，对性能要求较高，数据规模相对较小（数据文件量在一百万以内',
                     buttonType:1,
-                    url:'http://cicccloud.cicc.com.cn/ticket-center/',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=ticket-center&url=/ticket/apply',
                     basurl:'',
                 }
             ]
@@ -114,7 +114,7 @@ export const tablelist = [
     {
         name: "网络",
         img: require("../../../public/img/table/3.png"),
-        url:'',
+        url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/server/list',
         basurl:'',
         titList:[
             {
@@ -163,8 +163,8 @@ export const tablelist = [
     {
         name: "容器服务",
         img: require("../../../public/img/table/4.png"),
-        url:'http://cicccloud.cicc.com.cn/container-service/',
-        basurl:'http://cicccloud.cicc.com.cn/container-service/',
+        url:'http://cicccloud.cicc.com.cn/dashboard/?_module=container-service&url=/dashboard',
+        basurl:'https://rbnqidugqp.feishu.cn/wiki/wikcnxgsoKJWEY5ge8KJddSajAh',
         titList:[
             {
                 tit:'容器平台',
@@ -306,14 +306,14 @@ export const tablelist = [
                     lable:'监控',
                     value:'主机：可提供OS层面相关指标，包括ping、cpu、内存、磁盘空间等使用情况 ;告警通知，支持邮件、短信；阈值调整 。',
                     buttonType:1,
-                    url:'',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=ticket-center&url=/ticket/apply',
                     basurl:'',
                 }, {
                     img:require("../../../public/img/tables/7/3.png"),
                     lable:'portal-cmdb',
                     value:'CMDB查询服务，CMDB包含了配置项全生命周期的信息以及配置项之间的关系，可提供各配置项的查询服务 ',
                     buttonType:1,
-                    url:'',
+                    url:'http://cmdb.cicc.com.cn/',
                     basurl:'',
                 }, {
                     img:require("../../../public/img/tables/7/4.png"),
@@ -322,6 +322,16 @@ export const tablelist = [
                     buttonType:1,
                     url:'http://10.110.163.110/',
                     basurl:'',
+                    urlList:[
+                        {
+                            tit:'日志易',
+                            url:'http://10.110.163.110/'
+                        },
+                        {
+                            tit:'容器',
+                            url:'http://10.110.160.120/'
+                        }
+                    ],
                 }, {
                     img:require("../../../public/img/tables/7/5.png"),
                     lable:'DNS解析服务',
@@ -341,7 +351,7 @@ export const tablelist = [
                     lable:'安全',
                     value:'资产管理、入侵检测、风险预警,精准预测、实时监测、快速检测、多维分析、自动响应,定位实时入侵事件，持续隔离与阻断恶意行为。可在知识库了解更多',
                     buttonType:4,
-                    url:'',
+                    url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/catalog-product/list',
                     basurl:'',
                     titList:[
                         {
@@ -362,59 +372,6 @@ export const tablelist = [
         }
     },
 ];
-export const ITlist = [
-    {
-        img:require("../../../public/img/it/1.png"),
-        tit: "投行业务",
-        children: [
-            "投行综合管理系统",
-            "投行发行管理系统",
-            "投行销售管理系统",
-            "固收销售管理系统",
-        ],
-    },
-    {
-        img: require("../../../public/img/it/2.png"),
-        tit: "投研",
-        children: ["投研"],
-    },
-    {
-        img: require("../../../public/img/it/3.png"),
-        tit: "交易类",
-        children: ["集中交易系统", "内存交易系统", "期权交易系统", "TS"],
-    },
-    {
-        img: require("../../../public/img/it/5.png"),
-        tit: "营销服务类",
-        children: ["证券交易", "产品代销", "智能投顾", "客户管理"],
-    },
-    {
-        img: require("../../../public/img/it/4.png"),
-        tit: "销售类",
-        children: ["证券交易", "产品代销", "智能投顾", "客户管理"],
-    },
-    {
-        img: require("../../../public/img/it/6.png"),
-        tit: "经济类",
-        children: ["证券交易", "产品代销", "智能投顾", "客户管理"],
-    },
-    {
-        img: require("../../../public/img/it/7.png"),
-        tit: "资管（自营）",
-        children: [
-            "投资交易系统O32",
-            "分TA" + "\u00A0 \u00A0 \u00A0 \u00A0 \u00A0 \u00A0\u0020" + "自TA",
-            "估值系统  \u00A0  \u00A0 \u00A0资金清算",
-            "资管业务综合管理平台",
-        ],
-    },
-    {
-        img: require("../../../public/img/it/8.png"),
-        tit: "投行业务",
-        children: ["母基金", "私募"],
-    },
-];
-
 export const headerList = [
     {
         tit:"主页",
@@ -472,14 +429,14 @@ export const yunlsit = [
     {   
         lable:'GPU服务',
         children:[
-            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
             {name:'高满',tel:'18600943657 ',url:'Man.Gao@cicc.com.cn'}
         ]
     },
     {   
         lable:'操作系统',
         children:[
-            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
 
         ]
     },
@@ -530,7 +487,7 @@ export const yunlsit = [
     {   
         lable:'监控',
         children:[
-            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
             {name:'刘帅',tel:'18647144496',url:'Shuai.Liu@cicc.com.cn'},
             {name:'杨盼',tel:'18910968781',url:'Pan.Yang@cicc.com.cn'},
             {name:'严飞',tel:'15600748776',url:'Fei.Yan@cicc.com.cn'},
@@ -555,7 +512,7 @@ export const yunlsit = [
     {   
         lable:'SSJ证书服务',
         children:[
-            {name:'刘洋',tel:'18910893163',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
            
         ]
     },
