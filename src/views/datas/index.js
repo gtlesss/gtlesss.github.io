@@ -72,6 +72,7 @@ export const tablelist = [
         url:'',
         basurl:'',
         children:{
+            typebut:1,
             tit:' 稳定、安全、高性能的存储产品。以及不同类型、不同使用场景的存储选型参考及解决方案',
             code:['块存储','对象存储','云主机','NAS存储'],
             type:5,
@@ -117,6 +118,14 @@ export const tablelist = [
         url:'http://cicccloud.cicc.com.cn/dashboard/?_module=vm-service&url=/server/list',
         basurl:'',
         titList:[
+            {
+                tit:'网络知识图谱(全公司版)',
+                url:'https://rbnqidugqp.feishu.cn/docs/doccnxfYN85MGtZzuoh2pTlqqcb?appStyle=UI4&domain=www.feishu.cn&locale=zh-CN&refresh=1&tabName=space&theme=light&userId=6952733434728939521#uNvpwQ'
+            },
+            {
+                tit:'网络知识图谱(内嵌团队版)',
+                url:'https://rbnqidugqp.feishu.cn/docs/doccnCulKQsvWShv25bI2YarLPb?appStyle=UI4&domain=www.feishu.cn&locale=zh-CN&refresh=1&tabName=space&theme=light&userId=6952733434728939521'
+            },
             {
                 tit:'网络知识图谱(架构版)',
                 url:'https://rbnqidugqp.feishu.cn/docs/doccnoqeWPXOMhzzFfiBHOCKTfh'
@@ -408,7 +417,7 @@ export const yunlsit = [
     {   
         lable:'裸金属',
         children:[
-            {name:'刘洋',tel:'18613831525 ',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525 ',url:' Yang6.Liu@cicc.com.cn'},
             {name:'高满',tel:'18600943657 ',url:'Man.Gao@cicc.com.cn'}
         ]
     },
@@ -429,14 +438,14 @@ export const yunlsit = [
     {   
         lable:'GPU服务',
         children:[
-            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:' Yang6.Liu@cicc.com.cn'},
             {name:'高满',tel:'18600943657 ',url:'Man.Gao@cicc.com.cn'}
         ]
     },
     {   
         lable:'操作系统',
         children:[
-            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:' Yang6.Liu@cicc.com.cn'},
 
         ]
     },
@@ -487,7 +496,7 @@ export const yunlsit = [
     {   
         lable:'监控',
         children:[
-            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:' Yang6.Liu@cicc.com.cn'},
             {name:'刘帅',tel:'18647144496',url:'Shuai.Liu@cicc.com.cn'},
             {name:'杨盼',tel:'18910968781',url:'Pan.Yang@cicc.com.cn'},
             {name:'严飞',tel:'15600748776',url:'Fei.Yan@cicc.com.cn'},
@@ -512,14 +521,14 @@ export const yunlsit = [
     {   
         lable:'SSJ证书服务',
         children:[
-            {name:'刘洋',tel:'18613831525',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525',url:' Yang6.Liu@cicc.com.cn'},
            
         ]
     },
      {   
         lable:'域名DNS服务',
         children:[
-            {name:'刘洋',tel:'18613831525 ',url:'Jingwei.Jian@cicc.com.cn'},
+            {name:'刘洋',tel:'18613831525 ',url:' Yang6.Liu@cicc.com.cn'},
         ]
     },
 ]

@@ -19,7 +19,7 @@
                 <span class="title">境外数据中心</span>
             </div>
             <div>
-                <span class="lable color">115561</span>
+                <span class="lable color">11561</span>
                 <span class="title">云主机总量</span>
             </div>
             <div>
