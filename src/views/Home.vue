@@ -481,7 +481,7 @@ a {
             margin-top: 30px;
         }
         .table-img1 {
-            height: 293px;
+            height: 312px;
             width: 100%;
             margin-top: 32px;
         }
